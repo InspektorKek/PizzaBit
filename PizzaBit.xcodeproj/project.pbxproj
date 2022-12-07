@@ -15,6 +15,14 @@
 		B3AC84D629409284008EC2AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3AC84D429409284008EC2AC /* Main.storyboard */; };
 		B3AC84D829409285008EC2AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3AC84D729409285008EC2AC /* Assets.xcassets */; };
 		B3AC84DB29409285008EC2AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3AC84D929409285008EC2AC /* LaunchScreen.storyboard */; };
+		E12728132941595D00CDD761 /* IngredientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12728112941595D00CDD761 /* IngredientsModel.swift */; };
+		E12728142941595D00CDD761 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12728122941595D00CDD761 /* AudioManager.swift */; };
+		E12728192941597B00CDD761 /* basil.ahap in Resources */ = {isa = PBXBuildFile; fileRef = E12728152941597B00CDD761 /* basil.ahap */; };
+		E127281A2941597B00CDD761 /* tomato.ahap in Resources */ = {isa = PBXBuildFile; fileRef = E12728162941597B00CDD761 /* tomato.ahap */; };
+		E127281B2941597B00CDD761 /* mozza.ahap in Resources */ = {isa = PBXBuildFile; fileRef = E12728172941597B00CDD761 /* mozza.ahap */; };
+		E127281C2941597B00CDD761 /* oil.ahap in Resources */ = {isa = PBXBuildFile; fileRef = E12728182941597B00CDD761 /* oil.ahap */; };
+		E127281E294159A000CDD761 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E127281D294159A000CDD761 /* ContentView.swift */; };
+		E127282029415A2500CDD761 /* Pizza_Easy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E127281F29415A2500CDD761 /* Pizza_Easy.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +35,14 @@
 		B3AC84D529409284008EC2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3AC84D729409285008EC2AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3AC84DA29409285008EC2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E12728112941595D00CDD761 /* IngredientsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsModel.swift; sourceTree = "<group>"; };
+		E12728122941595D00CDD761 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		E12728152941597B00CDD761 /* basil.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = basil.ahap; sourceTree = "<group>"; };
+		E12728162941597B00CDD761 /* tomato.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tomato.ahap; sourceTree = "<group>"; };
+		E12728172941597B00CDD761 /* mozza.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mozza.ahap; sourceTree = "<group>"; };
+		E12728182941597B00CDD761 /* oil.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = oil.ahap; sourceTree = "<group>"; };
+		E127281D294159A000CDD761 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E127281F29415A2500CDD761 /* Pizza_Easy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Pizza_Easy.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +75,10 @@
 		B3AC84C929409284008EC2AC /* PizzaBit */ = {
 			isa = PBXGroup;
 			children = (
+				E127280F2941589A00CDD761 /* View */,
+				E127280E2941589000CDD761 /* Model */,
+				E12728102941591000CDD761 /* OST */,
+				E127280D2941588800CDD761 /* AHAP */,
 				B3AC84CA29409284008EC2AC /* AppDelegate.swift */,
 				B3AC84CC29409284008EC2AC /* GameScene.sks */,
 				B3AC84CE29409284008EC2AC /* Actions.sks */,
@@ -69,6 +89,42 @@
 				B3AC84D929409285008EC2AC /* LaunchScreen.storyboard */,
 			);
 			path = PizzaBit;
+			sourceTree = "<group>";
+		};
+		E127280D2941588800CDD761 /* AHAP */ = {
+			isa = PBXGroup;
+			children = (
+				E12728152941597B00CDD761 /* basil.ahap */,
+				E12728172941597B00CDD761 /* mozza.ahap */,
+				E12728182941597B00CDD761 /* oil.ahap */,
+				E12728162941597B00CDD761 /* tomato.ahap */,
+			);
+			path = AHAP;
+			sourceTree = "<group>";
+		};
+		E127280E2941589000CDD761 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E12728122941595D00CDD761 /* AudioManager.swift */,
+				E12728112941595D00CDD761 /* IngredientsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E127280F2941589A00CDD761 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E127281D294159A000CDD761 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E12728102941591000CDD761 /* OST */ = {
+			isa = PBXGroup;
+			children = (
+				E127281F29415A2500CDD761 /* Pizza_Easy.mp3 */,
+			);
+			path = OST;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,9 +186,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3AC84D629409284008EC2AC /* Main.storyboard in Resources */,
+				E127282029415A2500CDD761 /* Pizza_Easy.mp3 in Resources */,
 				B3AC84CD29409284008EC2AC /* GameScene.sks in Resources */,
 				B3AC84D829409285008EC2AC /* Assets.xcassets in Resources */,
+				E127281B2941597B00CDD761 /* mozza.ahap in Resources */,
+				E12728192941597B00CDD761 /* basil.ahap in Resources */,
 				B3AC84DB29409285008EC2AC /* LaunchScreen.storyboard in Resources */,
+				E127281C2941597B00CDD761 /* oil.ahap in Resources */,
+				E127281A2941597B00CDD761 /* tomato.ahap in Resources */,
 				B3AC84CF29409284008EC2AC /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +207,9 @@
 			files = (
 				B3AC84D129409284008EC2AC /* GameScene.swift in Sources */,
 				B3AC84D329409284008EC2AC /* GameViewController.swift in Sources */,
+				E127281E294159A000CDD761 /* ContentView.swift in Sources */,
+				E12728132941595D00CDD761 /* IngredientsModel.swift in Sources */,
+				E12728142941595D00CDD761 /* AudioManager.swift in Sources */,
 				B3AC84CB29409284008EC2AC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
