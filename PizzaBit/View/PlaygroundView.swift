@@ -20,7 +20,7 @@ struct ContentView: View {
     var body: some View {
         
         ZStack{
-            Image(colorScheme == .dark ? "bkg0" : "Canva")
+            Image(colorScheme == .light ? "bkg0" : "Canva")
                 .resizable()
                 .ignoresSafeArea()
             VStack {
@@ -35,6 +35,7 @@ struct ContentView: View {
                         
                     } label: {
                         LozengeBtn( cornerRadius: 0, rotationEffect: 0, frame: 50)
+                           
                             .overlay {
                             
                                     Image(systemName: musicTrigger ? "play.fill" : "pause.fill")
@@ -43,6 +44,7 @@ struct ContentView: View {
                                       .padding(.top,5)
                               
                             }
+                            
                     }
                     
                 }
@@ -154,6 +156,7 @@ struct LozengeBtn : View {
                     .clipShape( RoundedRectangle(cornerRadius: 20))
                     .frame(width: frame,height: frame)
                     .rotationEffect(Angle(degrees: rotationEffect))
+                    .opacity(0.7)
                     .overlay {
                         Image(pictoName)
                             .resizable()
@@ -165,6 +168,7 @@ struct LozengeBtn : View {
             }
             .shadow(color: Color(uiColor: .systemGray6), radius: 0,x: 0,y: 6)
             .shadow(color: Color(uiColor: .systemGray3), radius: 1,x: 0,y: 1)
+            
         
     }
 }
