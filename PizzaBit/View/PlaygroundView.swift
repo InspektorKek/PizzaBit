@@ -34,17 +34,11 @@ struct ContentView: View {
                         // add animation to smooth it out
                         
                     } label: {
-                        LozengeBtn( cornerRadius: 0, rotationEffect: 0, frame: 50)
-                           
-                            .overlay {
-                            
-                                    Image(systemName: musicTrigger ? "play.fill" : "pause.fill")
-                                          .font(.system(size: 30))
-                                      .foregroundColor(Color(uiColor: .label))
-                                      .padding(.top,5)
-                              
-                            }
-                            
+                        
+                        Image( musicTrigger ? "play" : "pause")
+                            .resizable()
+                            .frame(width: 32,height: 32)
+                            .scaledToFill()
                     }
                     
                 }
