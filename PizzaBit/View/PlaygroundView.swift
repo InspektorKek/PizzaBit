@@ -23,14 +23,14 @@ struct PlaygroundView: View {
         ZStack{
             // Background Image
             HStack {
-                Image(colorScheme == .light ? "bkg0" : "Canva")
+                Image(colorScheme == .light ? "bkg0" : "bkg0")
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()
             }
             
             
-            // Flow where ingredients
+            // Flow where ingredients run
             ZStack {
                 
                 HStack {
@@ -49,14 +49,14 @@ struct PlaygroundView: View {
                             
                             HomeMadeTimelapseView()
                                 .environmentObject(audioManager)
-                                .frame(width: 380,height: 15)
+                                .frame(width: 380,height: 20)
                         }
-                        .offset(x: 90,y: -105)
+                        .offset(x: 90,y: -103)
                     }
                     
                     Image("timelapse")
                         .resizable()
-                        .padding(.bottom,36)
+                        .padding(.bottom,40)
                     
                 }
                 
