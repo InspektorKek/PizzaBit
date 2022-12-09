@@ -23,6 +23,9 @@
 		E127281C2941597B00CDD761 /* oil.ahap in Resources */ = {isa = PBXBuildFile; fileRef = E12728182941597B00CDD761 /* oil.ahap */; };
 		E127281E294159A000CDD761 /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E127281D294159A000CDD761 /* PlaygroundView.swift */; };
 		E127282029415A2500CDD761 /* Pizza_Easy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E127281F29415A2500CDD761 /* Pizza_Easy.mp3 */; };
+		E12728332942A1C400CDD761 /* Oil.atlas in Resources */ = {isa = PBXBuildFile; fileRef = E12728302942A1C400CDD761 /* Oil.atlas */; };
+		E12728342942A1C400CDD761 /* Tomato.atlas in Resources */ = {isa = PBXBuildFile; fileRef = E12728312942A1C400CDD761 /* Tomato.atlas */; };
+		E12728352942A1C400CDD761 /* Mozzarella.atlas in Resources */ = {isa = PBXBuildFile; fileRef = E12728322942A1C400CDD761 /* Mozzarella.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		E12728182941597B00CDD761 /* oil.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = oil.ahap; sourceTree = "<group>"; };
 		E127281D294159A000CDD761 /* PlaygroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
 		E127281F29415A2500CDD761 /* Pizza_Easy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Pizza_Easy.mp3; sourceTree = "<group>"; };
+		E12728302942A1C400CDD761 /* Oil.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Oil.atlas; sourceTree = "<group>"; };
+		E12728312942A1C400CDD761 /* Tomato.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Tomato.atlas; sourceTree = "<group>"; };
+		E12728322942A1C400CDD761 /* Mozzarella.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Mozzarella.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,9 @@
 		E127280F2941589A00CDD761 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E12728322942A1C400CDD761 /* Mozzarella.atlas */,
+				E12728302942A1C400CDD761 /* Oil.atlas */,
+				E12728312942A1C400CDD761 /* Tomato.atlas */,
 				E127281D294159A000CDD761 /* PlaygroundView.swift */,
 			);
 			path = View;
@@ -188,10 +197,13 @@
 				B3AC84D629409284008EC2AC /* Main.storyboard in Resources */,
 				E127282029415A2500CDD761 /* Pizza_Easy.mp3 in Resources */,
 				B3AC84CD29409284008EC2AC /* GameScene.sks in Resources */,
+				E12728342942A1C400CDD761 /* Tomato.atlas in Resources */,
 				B3AC84D829409285008EC2AC /* Assets.xcassets in Resources */,
 				E127281B2941597B00CDD761 /* mozza.ahap in Resources */,
 				E12728192941597B00CDD761 /* basil.ahap in Resources */,
 				B3AC84DB29409285008EC2AC /* LaunchScreen.storyboard in Resources */,
+				E12728352942A1C400CDD761 /* Mozzarella.atlas in Resources */,
+				E12728332942A1C400CDD761 /* Oil.atlas in Resources */,
 				E127281C2941597B00CDD761 /* oil.ahap in Resources */,
 				E127281A2941597B00CDD761 /* tomato.ahap in Resources */,
 				B3AC84CF29409284008EC2AC /* Actions.sks in Resources */,

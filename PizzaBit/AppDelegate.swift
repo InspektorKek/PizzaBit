@@ -5,6 +5,7 @@
 //  Created by Mikhail Borisov on 07/12/22.
 //
 
+/*
 import UIKit
 
 @main
@@ -38,3 +39,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+*/
+
+import SwiftUI
+
+@main
+struct PizzaBitApp: App {
+    var body: some Scene {
+        WindowGroup {
+            PlaygroundView()
+        }
+    }
+}
