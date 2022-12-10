@@ -22,7 +22,7 @@ struct LevelView: View {
                         .ignoresSafeArea()
                         .frame(width: 300, height: 300)
                         .onAppear{
-                            miniChefSprite.size = CGSize(width: 300, height: 300)
+                            miniChefSprite.size = CGSize(width: 500, height: 500)
                             miniChefSprite.backgroundColor = .clear
                             miniChefSprite.scaleMode = .fill
                             miniChefSprite.ingredientName = "MiniChef"

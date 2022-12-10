@@ -74,7 +74,7 @@ class IngredientScene: SKScene {
             ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 0.15)),
                          withKey:"mozzaKey")
         } else{
-            ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 1.2)),
+            ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 0.2)),
                            withKey:"miniChef")
         }
        
