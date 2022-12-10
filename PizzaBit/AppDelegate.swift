@@ -47,7 +47,7 @@ import SwiftUI
 struct PizzaBitApp: App {
     var body: some Scene {
         WindowGroup {
-            PlaygroundView()
+            LevelView()
         }
     }
 }

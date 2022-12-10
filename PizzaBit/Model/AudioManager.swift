@@ -20,7 +20,7 @@ final class AudioManager : ObservableObject {
    }
    
    func startPlayer(messageAudioName : String){
-       guard let sourceFileURL = Bundle.main.url(forResource: messageAudioName, withExtension: "mp3")  else {
+       guard let sourceFileURL = Bundle.main.url(forResource: messageAudioName, withExtension: "wav")  else {
            print("Audio file not found: \(messageAudioName)")
            return
        }

@@ -70,11 +70,13 @@ class IngredientScene: SKScene {
         }else if(ingredientName == "basil"){
             ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 0.08)),
                          withKey:"basilKey")
-        }else{
+        }else if(ingredientName == "mozzarella"){
             ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 0.22)),
                          withKey:"mozzaKey")
+        } else{
+            ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 1.2)),
+                           withKey:"miniChef")
         }
-        
        
     }
     
@@ -92,4 +94,7 @@ var oilSprite = ingredientScene.copyIngredientScene()
 var basilSprite = ingredientScene.copyIngredientScene()
 var mozzaSprite = ingredientScene.copyIngredientScene()
 
+// Setiing MiniChef
+var miniChefSprite = ingredientScene.copyIngredientScene()
 
+//var garniture = [tomatoSprite,oilSprite,basilSprite,mozzaSprite]
