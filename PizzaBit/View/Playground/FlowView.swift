@@ -59,14 +59,14 @@ struct StreamingIngredientGrid : View {
         HStack {
             
             //MARK: Replace with the Chef Sprite
-            SpriteView(scene : oliveOil.scene , options: [.allowsTransparency])
+            SpriteView(scene : miniChefSprite , options: [.allowsTransparency])
                 .ignoresSafeArea()
                 .frame(width: 70, height: 100)
                 .onAppear{
-                    oliveOil.scene.size = CGSize(width: 128, height: 128)
-                    oliveOil.scene.backgroundColor = .clear
-                    oliveOil.scene.scaleMode = .fill
-                    oliveOil.scene.ingredientName = oliveOil.ingredientName
+                    miniChefSprite.size = CGSize(width: 770, height: 628)
+                    miniChefSprite.backgroundColor = .clear
+                    miniChefSprite.scaleMode = .fill
+                    miniChefSprite.ingredientName = "MiniChef"
                 }
             
             LazyHGrid(rows: rows) {
