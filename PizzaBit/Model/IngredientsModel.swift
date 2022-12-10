@@ -61,17 +61,17 @@ class IngredientScene: SKScene {
      }
      
     func animateIngredient() {
-        if(ingredientName == "tomato"){
-            ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 0.24)),
+        if(ingredientName == "Tomato"){
+            ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 0.08)),
                      withKey:"tomatoKey")
-        }else if(ingredientName == "oil"){
+        }else if(ingredientName == "Oil"){
             ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 0.21)),
                      withKey:"oilKey")
-        }else if(ingredientName == "basil"){
-            ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 0.08)),
+        }else if(ingredientName == "Basil"){
+            ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 0.04)),
                          withKey:"basilKey")
-        }else if(ingredientName == "mozzarella"){
-            ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 0.22)),
+        }else if(ingredientName == "Mozzarella"){
+            ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 0.15)),
                          withKey:"mozzaKey")
         } else{
             ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 1.2)),

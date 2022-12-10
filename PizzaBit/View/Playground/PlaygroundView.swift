@@ -54,12 +54,13 @@ struct PlaygroundView: View {
                             .scaledToFill()
                     }.offset(x: -25,y: -25)
                     
-                }.frame(width: 780)
+                }.frame(width: 785)
                     .offset(y: -20)
                 
                 
                 Spacer()
                 
+                // MARK: Ingredients btn
                 HStack {
                     ForEach(pizza){ ing in
                         Button {
@@ -85,7 +86,7 @@ struct PlaygroundView: View {
             }
             
         }
-        .fontDesign(.monospaced)
+        .font(Font.custom("Blocktopia", size: 40))
         .navigationBarBackButtonHidden()
     }
     
@@ -135,11 +136,6 @@ struct PlaygroundView: View {
     }
     
     
-    
-    
-    
-    
-    
 }
 
 
@@ -172,37 +168,6 @@ struct LozengeBtn : View {
         .shadow(color: Color(uiColor: .label), radius: 1,x: 0,y: 1)
         
         
-    }
-}
-
-
-struct HomeMadeTimelapseView : View {
-    @EnvironmentObject var audioManager : AudioManager
-    @State var width : CGFloat = 0
-    
-    var body: some View {
-        VStack(spacing : 20){
-            ZStack(alignment: .leading){
-                Capsule().fill(.black).frame(height: 15)
-                Capsule().fill(.red).frame(width: self.width, height: 15)
-                    .onAppear{
-                        Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ (_) in
-                            if ((audioManager.player?.isPlaying) != nil){
-
-                                let timelapseWidth = 380 - 10
-
-                                let value = audioManager.player!.currentTime / audioManager.player!.duration
-                                
-                                
-                                width = CGFloat(timelapseWidth) * CGFloat(value)
-                                
-                            }
-                            
-                        }
-                        
-                    }
-            }
-        }
     }
 }
 

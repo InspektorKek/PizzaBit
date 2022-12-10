@@ -29,7 +29,7 @@ struct LevelView: View {
                         }
                     
                     VStack(alignment: .trailing){
-                        
+                        Spacer()
                         NavigationLink {
                             PlaygroundView( musicLevel: "Pizza_Easy")
                         } label: {
@@ -39,6 +39,7 @@ struct LevelView: View {
                             PlaygroundView( musicLevel: "Pizza_Medium")
                         } label: {
                             Text("Medium")
+                            
                         }
                         NavigationLink {
                             PlaygroundView( musicLevel: "Pizza_Easy")
@@ -46,9 +47,7 @@ struct LevelView: View {
                             Text("Hard")
                         }
                         
-                    }.fontDesign(.monospaced)
-                        .fontWeight(.heavy)
-                    .font(.system(size: 90))
+                    }.font(.custom("Blocktopia", size: 90))
                     .foregroundColor(Color(uiColor: .label))
                     .shadow(color: .purple, radius: 0,x: -5)
                     .shadow(color: .green, radius: 0,x: 5)
