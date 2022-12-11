@@ -11,8 +11,9 @@ struct PointsView: View {
     var body: some View {
         ZStack {
             Image("PointsZone")
+            VStack(alignment: .trailing){
             HStack {
-                VStack(alignment: .trailing){
+               
                     
                     Text("Hits")
                         .font(.custom("PixelatedPusab", size: 40))

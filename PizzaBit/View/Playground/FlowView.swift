@@ -60,10 +60,10 @@ struct StreamingIngredientGrid : View {
             
             //MARK: Replace with the Chef Sprite
             SpriteView(scene : miniChefSprite , options: [.allowsTransparency])
-                .ignoresSafeArea()
-                .frame(width: 70, height: 100)
+               // .ignoresSafeArea()
+                .frame(width: 90, height: 100)
                 .onAppear{
-                    miniChefSprite.size = CGSize(width: 770, height: 628)
+                    miniChefSprite.size = CGSize(width: 500, height: 500)
                     miniChefSprite.backgroundColor = .clear
                     miniChefSprite.scaleMode = .fill
                     miniChefSprite.ingredientName = "MiniChef"
