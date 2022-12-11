@@ -104,8 +104,8 @@ struct HomeMadeTimelapseView : View {
     var body: some View {
         VStack(spacing : 20){
             ZStack(alignment: .leading){
-                Capsule().fill(.black).frame(height: 15)
-                Capsule().fill(.red).frame(width: self.width, height: 15)
+                Capsule().fill(Color(uiColor: .systemGray)).frame(height: 15)
+                Capsule().fill(Color(uiColor: .systemRed)).frame(width: self.width, height: 15)
                     .onAppear{
                         Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ (_) in
                             if ((audioManager.player?.isPlaying) != nil){

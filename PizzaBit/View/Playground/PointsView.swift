@@ -8,25 +8,65 @@
 import SwiftUI
 
 struct PointsView: View {
+    @State var combo : String  = "000"
+    @State var best : String = "999"
+    @State var score : String = "090"
+    
     var body: some View {
         ZStack {
             Image("PointsZone")
-            VStack(alignment: .trailing){
-            HStack {
-               
-                    
-                    Text("Hits")
-                        .font(.custom("PixelatedPusab", size: 40))
+            VStack(alignment: .trailing, spacing: 0){
+                
+                
+                HStack {
+                    Text("COMBO")
+                        .font(.custom("IsWasted", size: 22))
                         .foregroundColor(Color("Dough"))
-                    Text("0")
-                        .font(.custom("Blocktopia", size: 40))
-                        .foregroundColor(Color("Dough"))
-                       
+                        
+                    Spacer()
                     
-                }
-                } .shadow(color: Color(uiColor: .label), radius: 0,x:1, y: 1)
-                    .shadow(color: Color(uiColor: .label), radius: 0,x:-1, y: -1)
-           
+                    Text(combo)
+                        .font(.custom("Blocktopia", size: 45))
+                        .foregroundColor(Color("Dough"))
+                }.padding(.leading,56)
+                    .padding(.top)
+                    .shadow(color: Color(uiColor: .systemPurple), radius:0,x:0.75, y: 0.25)
+                    .shadow(color: Color(uiColor: .systemGreen), radius:0,x:-0.75, y: -0.25)
+                    .shadow(color: Color(uiColor: .label), radius: 0,x:0.5, y: 0.5)
+                    .shadow(color: Color(uiColor: .label), radius: 0,x:-0.5, y: -0.5)
+                    .shadow(color: Color(uiColor: .systemPurple), radius: 0,x:1, y: 1)
+                    .frame(width: 230)
+                
+                HStack{
+                    
+                    HStack {
+                        Image("0tomato")
+                            .resizable()
+                            .frame(width: 30,height: 30)
+                            .scaledToFill()
+                            .padding(.bottom,5)
+                        
+                        Text(score)
+                            .font(.custom("Blocktopia", size: 25))
+                            .foregroundColor(Color(uiColor: .label))
+                            .shadow(color: Color(uiColor: .systemGreen), radius:0,x:-1)
+                        
+                    }
+                    
+                    
+                    Spacer()
+                    HStack {
+                        Text("BEST \(best)")
+                    }
+                    .shadow(color: Color(uiColor: .systemPurple), radius:0,x:-1, y: 0)
+                    .foregroundColor(Color(uiColor: .label))
+                    .font(.custom("Blocktopia", size: 25))
+                    .shadow(color:Color(uiColor: .white), radius:0,x:1)
+                    
+                    
+                }.frame(width: 230)
+            }
+            
         }
     }
 }

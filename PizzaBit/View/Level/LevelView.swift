@@ -38,7 +38,7 @@ struct LevelView: View {
                         NavigationLink {
                             PlaygroundView( musicLevel: "Pizza_Medium")
                         } label: {
-                            Text("Medium")
+                            Text("Normal")
                             
                         }
                         NavigationLink {
