@@ -6,95 +6,47 @@
 //
 
 import Foundation
-import SpriteKit
 
-struct Ingredient : Identifiable{
+struct Ingredient: Identifiable {
     var id = UUID()
-    var ingredientName : String
-    var imgName : String
-    var sfx : String
-    var haptic : String
-    var scene : IngredientScene
+    var type: Kind
+    var scene: IngredientScene
     
-}
-
-
-var tomato = Ingredient(ingredientName: "Tomato",imgName: "0tomato", sfx: "tomato", haptic: "tomato", scene: tomatoSprite)
-var basil = Ingredient(ingredientName: "Basil", imgName: "0basil", sfx: "basil", haptic: "basil", scene: basilSprite)
-var oliveOil  = Ingredient(ingredientName:"Oil",imgName: "0oil", sfx: "oil", haptic: "oil", scene: oilSprite)
-var mozza  = Ingredient(ingredientName:"Mozzarella",imgName: "0mozza", sfx: "mozza", haptic: "mozza", scene: mozzaSprite)
-
-var pizza = [tomato,oliveOil,basil,mozza]
-
-
-class IngredientScene: SKScene {
-    var ingredientName : String = ""
+    var imgName: String { "0" + type.rawValue }
+    var sfx: String { type.rawValue }
+    var haptic: String { type.rawValue }
     
-    private var ingredient = SKSpriteNode()
-    
-    private var ingredientFrames: [SKTexture] = []
-    
-    override func didMove(to view: SKView) {
-        backgroundColor = .clear
-        buildIngredient()
-        animateIngredient()
-    }
-    
-    
-     func buildIngredient() {
-     let ingredientAnimatedAtlas = SKTextureAtlas(named: ingredientName)
-     var ingredientBufferFrames: [SKTexture] = []
-     
-     let numImages = ingredientAnimatedAtlas.textureNames.count
-     for i in 1..<numImages+1 {
-     let ingredientTextureName = "\(ingredientName)\(i)"
-         ingredientBufferFrames.append(ingredientAnimatedAtlas.textureNamed(ingredientTextureName))
-     }
-         ingredientFrames = ingredientBufferFrames
-     
-     let firstFrameTexture = ingredientFrames[1]
-     ingredient = SKSpriteNode(texture: firstFrameTexture)
-     ingredient.position = CGPoint(x: frame.midX, y: frame.midY)
-  
-     addChild(ingredient)
-     
-     }
-     
-    func animateIngredient() {
-        if(ingredientName == "Tomato"){
-            ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 0.08)),
-                     withKey:"tomatoKey")
-        }else if(ingredientName == "Oil"){
-            ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 0.21)),
-                     withKey:"oilKey")
-        }else if(ingredientName == "Basil"){
-            ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 0.04)),
-                         withKey:"basilKey")
-        }else if(ingredientName == "Mozzarella"){
-            ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 0.15)),
-                         withKey:"mozzaKey")
-        } else{
-            ingredient.run(SKAction.repeatForever(SKAction.animate(with: ingredientFrames, timePerFrame: 0.18)),
-                           withKey:"miniChef")
+    enum Kind: String, CaseIterable {
+        case tomato
+        case basil
+        case oil
+        case mozzarella
+        
+        var name: String { rawValue.capitalized }
+        var timePerFrame: Double {
+            switch self {
+            case .tomato:
+                return 0.08
+            case .basil:
+                return 0.04
+            case .oil:
+                return 0.21
+            case .mozzarella:
+                return 0.15
+            }
         }
-       
-    }
-    
-    func copyIngredientScene() -> IngredientScene {
-        let ingredient = IngredientScene()
-        ingredient.ingredientName = ingredientName
-        return ingredient
+        
+        var size: CGFloat {
+            switch self {
+            case .mozzarella, .tomato:
+                return 32
+            case .basil:
+                return 64
+            case .oil:
+                return 128
+            }
+        }
     }
 }
-
-//  Setting Ingredients
-var ingredientScene = IngredientScene()
-var tomatoSprite = ingredientScene.copyIngredientScene()
-var oilSprite = ingredientScene.copyIngredientScene()
-var basilSprite = ingredientScene.copyIngredientScene()
-var mozzaSprite = ingredientScene.copyIngredientScene()
-
-// Setiing MiniChef
-var miniChefSprite = ingredientScene.copyIngredientScene()
 
 //var garniture = [tomatoSprite,oilSprite,basilSprite,mozzaSprite]

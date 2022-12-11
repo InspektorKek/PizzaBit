@@ -10,87 +10,53 @@ import SpriteKit
 
 struct FlowView: View {
     @EnvironmentObject var audioManager : AudioManager
+    @Binding var pizza: [Ingredient]
+    
     var body: some View {
         // Flow where ingredients run
-        ZStack {
-            
+        VStack(spacing: 0) {
             HStack {
                 Spacer()
-                Image("flow")
-                    .resizable()
-                    .ignoresSafeArea()
-                    .scaledToFill()
-                    .frame(width: 990,height: 0)
-            }.offset(y: 8)
-            
-            ZStack {
-                
-                HStack {
-                    ZStack {
-                        
-                        HomeMadeTimelapseView()
-                            .environmentObject(audioManager)
-                            .frame(width: 380,height: 20)
-                    }
-                    .offset(x: 90,y: -103)
-                }
-                
-                Image("timelapse")
-                    .resizable()
-                    .padding(.bottom,40)
-                
+                HomeMadeTimelapseView()
+                    .frame(height: 20)
+                    .frame(width: 300)
+                    .padding(.trailing, 30)
             }
-            
-            StreamingIngredientGrid()
-                .padding(.bottom,32)
-            
+
+            StreamingIngredientGrid(pizza: $pizza)
+                .frame(maxWidth: .infinity)
+                .frame(height: 120)
+                .padding(.leading, 40)
+                .background {
+                    Image("flow")
+                        .resizable()
+                        .frame(height: 120)
+                        .edgesIgnoringSafeArea(.trailing)
+                }
         }
     }
-    
-    
 }
 
 
 // To be defined
 struct StreamingIngredientGrid : View {
+    @Binding var pizza: [Ingredient]
+    
     var body: some View {
         let rows : [GridItem] = [GridItem(spacing: 10.0, alignment: .center)]
         
         HStack {
-            
-            //MARK: Replace with the Chef Sprite
-            SpriteView(scene : miniChefSprite , options: [.allowsTransparency])
-               // .ignoresSafeArea()
-                .frame(width: 90, height: 100)
-                .onAppear{
-                    miniChefSprite.size = CGSize(width: 500, height: 500)
-                    miniChefSprite.backgroundColor = .clear
-                    miniChefSprite.scaleMode = .fill
-                    miniChefSprite.ingredientName = "MiniChef"
-                }
-            
+            SpriteView(scene: SceneFabric.shared.miniChefScene, options: [.allowsTransparency])
+                .frame(width: 90, height: 90)
+                        
             LazyHGrid(rows: rows) {
-                
-                ForEach(0..<3){ _ in
-                    ForEach(pizza.shuffled()){ ing in
-                        ForEach(0..<1){ _ in
-                            let square = ing.ingredientName == "Oil" ? 128 :  ing.ingredientName == "Basil" ? 64 : 32
-                            
-                            SpriteView(scene : ing.scene , options: [.allowsTransparency])
-                                .ignoresSafeArea()
-                                .frame(width: 64, height: 64)
-                                .onAppear{
-                                    ing.scene.size = CGSize(width: square, height: square)
-                                    ing.scene.backgroundColor = .clear
-                                    ing.scene.scaleMode = .fill
-                                    ing.scene.ingredientName = ing.ingredientName
-                                }
-                        }
-                    }
+                ForEach(pizza){ ing in
+                    SpriteView(scene: ing.scene , options: [.allowsTransparency])
+                        .frame(width: 64, height: 64)
                 }
             }
-        }.padding(.trailing,-200)
-        
+            Spacer()
+        }
     }
     
 }
@@ -102,37 +68,42 @@ struct HomeMadeTimelapseView : View {
     @State var width : CGFloat = 0
     
     var body: some View {
-        VStack(spacing : 20){
-            ZStack(alignment: .leading){
-                Capsule().fill(Color(uiColor: .systemGray)).frame(height: 15)
-                Capsule().fill(Color(uiColor: .systemRed)).frame(width: self.width, height: 15)
-                    .onAppear{
-                        Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ (_) in
-                            if ((audioManager.player?.isPlaying) != nil){
-
-                                let timelapseWidth = 380 - 10
-
-                                let value = audioManager.player!.currentTime / audioManager.player!.duration
-                                
-                                
-                                width = CGFloat(timelapseWidth) * CGFloat(value)
+        GeometryReader { proxy in
+            ZStack(alignment: .leading) {
+                ZStack(alignment: .leading) {
+                    Rectangle().fill(Color(uiColor: .systemGray)).frame(height: 15)
+                    Rectangle().fill(Color(uiColor: .systemRed)).frame(width: self.width, height: 15)
+                        .onAppear{
+                            Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ (_) in
+                                if ((audioManager.player?.isPlaying) != nil){
+                                    
+                                    let timelapseWidth = proxy.size.width - 10
+                                    
+                                    let value = audioManager.player!.currentTime / audioManager.player!.duration
+                                    
+                                    
+                                    width = CGFloat(timelapseWidth) * CGFloat(value)
+                                    
+                                }
                                 
                             }
                             
                         }
-                        
-                    }
+                }
+                .padding(.horizontal, 16)
+                Image("timelapse")
+                    .resizable()
+                    .frame(height: 20)
             }
+            .offset(y: 4)
         }
     }
 }
 
-
-
-
 struct FlowView_Previews: PreviewProvider {
     static var previews: some View {
-        FlowView()
+        FlowView(pizza: .constant([]))
             .environmentObject(AudioManager())
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }

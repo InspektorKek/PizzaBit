@@ -10,55 +10,51 @@ import SpriteKit
 
 struct LevelView: View {
     var body: some View {
-
+        
         NavigationView {
-        ZStack {
-            Image("bkg0")
-                .resizable()
-                .ignoresSafeArea()
-            
-                HStack {
-                    SpriteView(scene : miniChefSprite , options: [.allowsTransparency])
-                        .ignoresSafeArea()
-                        .frame(width: 300, height: 300)
-                        .onAppear{
-                            miniChefSprite.size = CGSize(width: 500, height: 500)
-                            miniChefSprite.backgroundColor = .clear
-                            miniChefSprite.scaleMode = .fill
-                            miniChefSprite.ingredientName = "MiniChef"
-                        }
-                    
-                    VStack(alignment: .trailing){
-                        Spacer()
-                        NavigationLink {
-                            PlaygroundView( musicLevel: "Pizza_Easy")
-                        } label: {
-                            Text("Easy")
-                        }
-                        NavigationLink {
-                            PlaygroundView( musicLevel: "Pizza_Medium")
-                        } label: {
-                            Text("Normal")
-                            
-                        }
-                        NavigationLink {
-                            PlaygroundView( musicLevel: "Pizza_Easy")
-                        } label: {
-                            Text("Hard")
-                        }
+            HStack {
+                SpriteView(scene : SceneFabric.shared.miniChefScene , options: [.allowsTransparency])
+                    .frame(width: 300, height: 300)
+                
+                VStack(alignment: .trailing){
+                    Spacer()
+                    NavigationLink {
+                        PlaygroundView( musicLevel: "Pizza_Easy")
+                    } label: {
+                        Text("Easy")
+                    }
+                    NavigationLink {
+                        PlaygroundView( musicLevel: "Pizza_Medium")
+                    } label: {
+                        Text("Normal")
                         
-                    }.font(.custom("Blocktopia", size: 90))
-                    .foregroundColor(Color(uiColor: .label))
-                    .shadow(color: .purple, radius: 0,x: -5)
-                    .shadow(color: .green, radius: 0,x: 5)
+                    }
+                    NavigationLink {
+                        PlaygroundView( musicLevel: "Pizza_Easy")
+                    } label: {
+                        Text("Hard")
+                    }
+                    
                 }
+                .font(.custom("Blocktopia", size: 90))
+                .foregroundColor(Color(uiColor: .label))
+                .shadow(color: .purple, radius: 0,x: -5)
+                .shadow(color: .green, radius: 0,x: 5)
             }
-        }.navigationBarBackButtonHidden()
+            .background {
+                Image("bkg0")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+            }
+        }
+        .navigationBarBackButtonHidden()
     }
 }
 
 struct LevelView_Previews: PreviewProvider {
     static var previews: some View {
         LevelView()
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }

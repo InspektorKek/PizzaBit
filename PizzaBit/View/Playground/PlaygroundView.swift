@@ -11,8 +11,6 @@ import CoreHaptics
 import SpriteKit
 
 struct PlaygroundView: View {
-    @Environment(\.colorScheme) var colorScheme
-    
     @StateObject var audioManager = AudioManager()
     @State private var engine : CHHapticEngine?
     
@@ -21,73 +19,60 @@ struct PlaygroundView: View {
     
     @State var musicLevel : String
     
+    @State var pizza: [Ingredient] = Ingredient.Kind.allCases.map { Ingredient(type: $0, scene: IngredientScene(ingredientKind: $0)) }
+    
     var body: some View {
-        
-        ZStack{
-            // Background Image
+        VStack(spacing: 0) {
+            // MARK: Play Pause Soundtrack btn
             HStack {
-                Image(colorScheme == .light ? "bkg0" : "bkg0")
-                    .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea()
-            }
-            
-            
-            FlowView()
-                .environmentObject(audioManager)
-            
-            
-            VStack {
-                // MARK: Play Pause Soundtrack btn
-                HStack{
-                    PointsView()
-                    Spacer()
-                    Button {
-                        audioManager.playPause()
-                        musicTrigger.toggle()
-                        
-                    } label: {
-                        
-                        Image( musicTrigger ? "play" : "pause")
-                            .resizable()
-                            .frame(width: 32,height: 32)
-                            .scaledToFill()
-                    }.offset(x: -25,y: -25)
-                    
-                }.frame(width: 785)
-                    .offset(y: -20)
-                
-                
+                PointsView()
                 Spacer()
-                
-                // MARK: Ingredients btn
-                HStack {
-                    ForEach(pizza){ ing in
-                        Button {
-                            ingredient = ing.ingredientName
-                            prepareHaptics()
-                            playIngredientHapticsFile(ing.haptic)
-                        } label: {
-                            VStack {
-                                LozengeBtn(pictoName: ing.imgName, rotationEffect: 45, frame: 75)
-                                    .padding()
-                                
-                            }
-                        }.padding(.bottom, ing.imgName == "0oil" || ing.imgName == "0basil" ?  0 : 30)
-                        if(ing.imgName == "0oil"){
-                            Spacer()
-                                .frame(width: 360)
-                        }
+                Button {
+                    audioManager.playPause()
+                    musicTrigger.toggle()
+                } label: {
+                    Image(musicTrigger ? "play" : "pause")
+                        .resizable()
+                        .frame(width: 32,height: 32)
+                }
+            }
+            .padding(.horizontal)
+            .padding(.top)
+            
+            FlowView(pizza: $pizza)
+                .environmentObject(audioManager)
+                .padding(.leading)
+            
+            // MARK: Ingredients btn
+            HStack {
+                ForEach(pizza){ ing in
+                    Button {
+                        ingredient = ing.type.name
+                        prepareHaptics()
+                        playIngredientHapticsFile(ing.haptic)
+                    } label: {
+                        LozengeBtn(pictoName: ing.imgName, rotationEffect: 45, frame: 75)
+                            .padding(.horizontal)
+                        
+                    }.padding(.bottom, ing.type == .oil || ing.type == .basil ?  0 : 30)
+                    
+                    if ing.type == .basil {
+                        Spacer()
                     }
                 }
             }
-            .onAppear{
-                audioManager.startPlayer(messageAudioName: musicLevel)
-            }
-            
+            .padding()
         }
-        .font(Font.custom("Blocktopia", size: 40))
+        .background {
+            Image("bkg0")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+        }
         .navigationBarBackButtonHidden()
+        .onAppear {
+            audioManager.startPlayer(messageAudioName: musicLevel)
+        }
     }
     
     // MARK: Haptic Toolbox
@@ -171,12 +156,9 @@ struct LozengeBtn : View {
     }
 }
 
-
-
-
-
 struct PlaygroundView_Previews: PreviewProvider {
     static var previews: some View {
         PlaygroundView(musicLevel: "Pizza_Medium")
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }

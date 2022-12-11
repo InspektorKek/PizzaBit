@@ -68,6 +68,7 @@ struct PointsView: View {
             }
             
         }
+        .frame(width: 250)
     }
 }
 
