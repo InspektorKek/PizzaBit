@@ -7,12 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B3AC84CB29409284008EC2AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AC84CA29409284008EC2AC /* AppDelegate.swift */; };
-		B3AC84CD29409284008EC2AC /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3AC84CC29409284008EC2AC /* GameScene.sks */; };
-		B3AC84CF29409284008EC2AC /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3AC84CE29409284008EC2AC /* Actions.sks */; };
-		B3AC84D129409284008EC2AC /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AC84D029409284008EC2AC /* GameScene.swift */; };
-		B3AC84D329409284008EC2AC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AC84D229409284008EC2AC /* GameViewController.swift */; };
-		B3AC84D629409284008EC2AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3AC84D429409284008EC2AC /* Main.storyboard */; };
+		B3AC84CB29409284008EC2AC /* PizzaBitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AC84CA29409284008EC2AC /* PizzaBitApp.swift */; };
 		B3AC84D829409285008EC2AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3AC84D729409285008EC2AC /* Assets.xcassets */; };
 		B3AC84DB29409285008EC2AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3AC84D929409285008EC2AC /* LaunchScreen.storyboard */; };
 		E12728132941595D00CDD761 /* IngredientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12728112941595D00CDD761 /* IngredientsModel.swift */; };
@@ -34,12 +29,7 @@
 
 /* Begin PBXFileReference section */
 		B3AC84C729409284008EC2AC /* PizzaBit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaBit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3AC84CA29409284008EC2AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B3AC84CC29409284008EC2AC /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		B3AC84CE29409284008EC2AC /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		B3AC84D029409284008EC2AC /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		B3AC84D229409284008EC2AC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		B3AC84D529409284008EC2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B3AC84CA29409284008EC2AC /* PizzaBitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaBitApp.swift; sourceTree = "<group>"; };
 		B3AC84D729409285008EC2AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3AC84DA29409285008EC2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E12728112941595D00CDD761 /* IngredientsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsModel.swift; sourceTree = "<group>"; };
@@ -92,14 +82,9 @@
 			children = (
 				E127280F2941589A00CDD761 /* View */,
 				E127280E2941589000CDD761 /* Model */,
-				E1B13CCE294497F4006707A2 /* Ressources */,
+				E1B13CCE294497F4006707A2 /* Resources */,
 				B3AC84D729409285008EC2AC /* Assets.xcassets */,
-				B3AC84CA29409284008EC2AC /* AppDelegate.swift */,
-				B3AC84CC29409284008EC2AC /* GameScene.sks */,
-				B3AC84CE29409284008EC2AC /* Actions.sks */,
-				B3AC84D029409284008EC2AC /* GameScene.swift */,
-				B3AC84D229409284008EC2AC /* GameViewController.swift */,
-				B3AC84D429409284008EC2AC /* Main.storyboard */,
+				B3AC84CA29409284008EC2AC /* PizzaBitApp.swift */,
 				B3AC84D929409285008EC2AC /* LaunchScreen.storyboard */,
 			);
 			path = PizzaBit;
@@ -171,7 +156,7 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		E1B13CCE294497F4006707A2 /* Ressources */ = {
+		E1B13CCE294497F4006707A2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				E1B13CCD29449745006707A2 /* Info.plist */,
@@ -179,7 +164,7 @@
 				E12728102941591000CDD761 /* OST */,
 				E1B13CCA294496AE006707A2 /* Fonts */,
 			);
-			path = Ressources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,9 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1B13CD12944A946006707A2 /* Blocktopia.ttf in Resources */,
-				B3AC84D629409284008EC2AC /* Main.storyboard in Resources */,
 				E1B13CBB29437F27006707A2 /* Pizza_Medium.wav in Resources */,
-				B3AC84CD29409284008EC2AC /* GameScene.sks in Resources */,
 				E1B13CB929437F01006707A2 /* Pizza_Easy.wav in Resources */,
 				B3AC84D829409285008EC2AC /* Assets.xcassets in Resources */,
 				E1B13CD52945F0C6006707A2 /* IsWasted.ttf in Resources */,
@@ -253,7 +236,6 @@
 				B3AC84DB29409285008EC2AC /* LaunchScreen.storyboard in Resources */,
 				E127281C2941597B00CDD761 /* oil.ahap in Resources */,
 				E127281A2941597B00CDD761 /* tomato.ahap in Resources */,
-				B3AC84CF29409284008EC2AC /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,28 +247,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E127284229432E0F00CDD761 /* PlaygroundView.swift in Sources */,
-				B3AC84D129409284008EC2AC /* GameScene.swift in Sources */,
 				E127284029432D4900CDD761 /* FlowView.swift in Sources */,
 				E1B13CBD2943EAC8006707A2 /* PointsView.swift in Sources */,
 				E1B13CC02943F69F006707A2 /* LevelView.swift in Sources */,
-				B3AC84D329409284008EC2AC /* GameViewController.swift in Sources */,
 				E12728132941595D00CDD761 /* IngredientsModel.swift in Sources */,
 				E12728142941595D00CDD761 /* AudioManager.swift in Sources */,
-				B3AC84CB29409284008EC2AC /* AppDelegate.swift in Sources */,
+				B3AC84CB29409284008EC2AC /* PizzaBitApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B3AC84D429409284008EC2AC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B3AC84D529409284008EC2AC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B3AC84D929409285008EC2AC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -419,9 +391,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 38BRD9SJV7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PizzaBit/Ressources/Info.plist;
+				INFOPLIST_FILE = PizzaBit/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -451,9 +423,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 38BRD9SJV7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PizzaBit/Ressources/Info.plist;
+				INFOPLIST_FILE = PizzaBit/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
