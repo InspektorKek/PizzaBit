@@ -61,7 +61,7 @@ struct GamePauseView: View {
                             Spacer()
                             Button {
                                 audioManager.player?.currentTime = 0.0
-                                audioManager.playPause()
+                                audioManager.player?.play()
                                 audioManager.isPlaying = true
                             } label: {
                                 
@@ -114,6 +114,7 @@ struct GamePauseView: View {
 
 struct GamePauseView_Previews: PreviewProvider {
     static var previews: some View {
+      // GamePauseView(musicLevel: <#T##Binding<String>#>)
         PlaygroundView(musicLevel: "Pizza_Medium")
     }
 }

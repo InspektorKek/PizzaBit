@@ -52,6 +52,9 @@ import AVKit
        if player.isPlaying {
            player.pause()
            isPlaying = false
+       }   else if (player.isPlaying == false && player.currentTime == 0.0) {
+           player.stop()
+           isPlaying = false
        }else{
            player.play()
            isPlaying = true

@@ -14,13 +14,13 @@ struct GameOverView: View {
             Rectangle()
                 .foregroundColor(
                     .black
-                        .opacity(0.5)
+                        .opacity(0.9)
                 )
                 .ignoresSafeArea()
            
             HStack{
                 ZStack {
-                    Lozenge(rotationEffect: 45, frame: 100)
+                    Lozenge(rotationEffect: 45, frame: 90)
                     Button {
                         audioManager.player?.currentTime = 0.0
                         audioManager.playPause()
@@ -44,7 +44,7 @@ struct GameOverView: View {
                 }
                 Spacer()
                 ZStack{
-                Lozenge(gradient: [Color("Dough")],cornerRadius: 900,rotationEffect: 0, frame: 370)
+                Lozenge(gradient: [Color("Dough")],cornerRadius: 900,rotationEffect: 0, frame: 350)
                     .foregroundColor(Color("Dough"))
                     .shadow(color: Color(uiColor: .systemPurple), radius:2,x:0.75, y: 0.25)
                     .shadow(color: Color(uiColor: .systemGreen), radius:2,x:-0.75, y: -0.25)
@@ -123,7 +123,7 @@ struct GameOverView: View {
                             }
                         }
                         
-                    }.frame(width: 320)
+                    }.frame(width: 250)
                         .font(.custom("Blocktopia", size: 20))
                         .foregroundColor(Color(uiColor: .label))
                         .labelStyle(.iconOnly)
@@ -135,10 +135,14 @@ struct GameOverView: View {
             }
                 Spacer()
                 ZStack {
-                    Lozenge(rotationEffect: 45, frame: 100)
+                    Lozenge(rotationEffect: 45, frame: 90)
                     
                     NavigationLink {
-                            LevelView()
+                        LevelView()
+                            .onAppear{
+                            audioManager.player?.stop()
+                        }
+                        
                         //close the view
                         //make the player current time at zero
                         // play the song
@@ -158,7 +162,8 @@ struct GameOverView: View {
                        
                     }
                 }
-            }.padding()
+            }.padding(.top,10)
+                .frame(width: 600)
                     
             }
         .font(.custom("Blocktopia", size: 20))

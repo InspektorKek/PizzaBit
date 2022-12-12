@@ -63,7 +63,42 @@ struct StreamingIngredientGrid : View {
 }
 
 
+struct HomeMadeTimelapseView : View {
+    @EnvironmentObject var audioManager : AudioManager
+    @State var width : CGFloat = 0
+    
+    var body: some View {
+        VStack(spacing : 20){
+            ZStack(alignment: .leading){
+                Rectangle().fill(.gray).frame(width: 380,height: 15)
+                Rectangle().fill(.red).frame(width: self.width, height: 15)
+                    .onAppear{
+                        Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ (_) in
+                            if ((audioManager.player?.isPlaying) != nil){
 
+                                let timelapseWidth = 360
+
+                                let value = audioManager.player!.currentTime / audioManager.player!.duration
+                                 print("current time : \(audioManager.player!.currentTime )\nduration: \(audioManager.player!.duration)")
+                                
+                                width = CGFloat(timelapseWidth) * CGFloat(value)
+                                
+                            }
+                            
+                        }
+                        
+                    }
+    
+        
+            .padding(.horizontal, 16)
+            Image("timelapse")
+                .resizable()
+                .frame(width: 385,height: 20)
+        } .offset(y: 4)
+        }
+    }
+}
+/*
 struct HomeMadeTimelapseView : View {
     @EnvironmentObject var audioManager : AudioManager
     @State var width : CGFloat = 0
@@ -85,6 +120,7 @@ struct HomeMadeTimelapseView : View {
                                     
                                     width = CGFloat(timelapseWidth) * CGFloat(value)
                                     
+                                    
                                 }
                                 
                             }
@@ -100,7 +136,7 @@ struct HomeMadeTimelapseView : View {
         }
     }
 }
-
+*/
 struct FlowView_Previews: PreviewProvider {
     static var previews: some View {
         FlowView(pizza: .constant(Ingredient.Kind.allCases.map { Ingredient(type: $0, scene: IngredientScene(ingredientKind: $0)) } + Ingredient.Kind.allCases.map { Ingredient(type: $0, scene: IngredientScene(ingredientKind: $0)) } + Ingredient.Kind.allCases.map { Ingredient(type: $0, scene: IngredientScene(ingredientKind: $0)) }))

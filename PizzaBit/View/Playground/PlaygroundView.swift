@@ -96,6 +96,9 @@ struct PlaygroundView: View {
                     GamePauseView(musicLevel: $musicLevel).environmentObject(audioManager)
                 
             }
+            
+            
+            
         }
     }
     
