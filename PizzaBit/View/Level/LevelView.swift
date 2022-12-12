@@ -30,7 +30,7 @@ struct LevelView: View {
                         
                     }
                     NavigationLink {
-                        PlaygroundView( musicLevel: "Pizza_Easy")
+                        PlaygroundView( musicLevel: "PERFECTIONIST")
                     } label: {
                         Text("Hard")
                     }
