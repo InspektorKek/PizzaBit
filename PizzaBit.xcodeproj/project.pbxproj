@@ -13,6 +13,7 @@
 		B3AC84D829409285008EC2AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3AC84D729409285008EC2AC /* Assets.xcassets */; };
 		B3AC84DB29409285008EC2AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3AC84D929409285008EC2AC /* LaunchScreen.storyboard */; };
 		B3F4A0E22946924400D3F283 /* SceneFabric.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4A0E12946924400D3F283 /* SceneFabric.swift */; };
+		B3F4A0EE2947387100D3F283 /* FlowScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3F4A0ED2947387100D3F283 /* FlowScene.sks */; };
 		E12728132941595D00CDD761 /* IngredientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12728112941595D00CDD761 /* IngredientsModel.swift */; };
 		E12728142941595D00CDD761 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12728122941595D00CDD761 /* AudioManager.swift */; };
 		E12728192941597B00CDD761 /* basil.ahap in Resources */ = {isa = PBXBuildFile; fileRef = E12728152941597B00CDD761 /* basil.ahap */; };
@@ -38,6 +39,7 @@
 		B3AC84D729409285008EC2AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3AC84DA29409285008EC2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3F4A0E12946924400D3F283 /* SceneFabric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneFabric.swift; sourceTree = "<group>"; };
+		B3F4A0ED2947387100D3F283 /* FlowScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FlowScene.sks; sourceTree = "<group>"; };
 		E12728112941595D00CDD761 /* IngredientsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsModel.swift; sourceTree = "<group>"; };
 		E12728122941595D00CDD761 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		E12728152941597B00CDD761 /* basil.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = basil.ahap; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				B391F673294632D200F6E710 /* IngredientScene.swift */,
 				B3F4A0E12946924400D3F283 /* SceneFabric.swift */,
 				B391F6752946330200F6E710 /* ChefScene.swift */,
+				B3F4A0ED2947387100D3F283 /* FlowScene.sks */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				E12728192941597B00CDD761 /* basil.ahap in Resources */,
 				B3AC84DB29409285008EC2AC /* LaunchScreen.storyboard in Resources */,
 				E127281C2941597B00CDD761 /* oil.ahap in Resources */,
+				B3F4A0EE2947387100D3F283 /* FlowScene.sks in Resources */,
 				E127281A2941597B00CDD761 /* tomato.ahap in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

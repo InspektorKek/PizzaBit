@@ -12,6 +12,13 @@ struct FlowView: View {
     @EnvironmentObject var audioManager : AudioManager
     @Binding var pizza: [Ingredient]
     
+    var scene: SKScene {
+        let scene = SKScene(fileNamed: "FlowScene")!
+        scene.scaleMode = .fill
+        scene.backgroundColor = .clear
+        return scene
+    }
+    
     var body: some View {
         // Flow where ingredients run
         VStack(spacing: 0) {
@@ -22,17 +29,11 @@ struct FlowView: View {
                     .frame(width: 300)
                     .padding(.trailing, 30)
             }
-
-            StreamingIngredientGrid(pizza: $pizza)
-                .frame(maxWidth: .infinity)
+            
+            SpriteView(scene: scene)
                 .frame(height: 120)
-                .padding(.leading, 40)
-                .background {
-                    Image("flow")
-                        .resizable()
-                        .frame(height: 120)
-                        .edgesIgnoringSafeArea(.trailing)
-                }
+                .frame(maxWidth: .infinity)
+                .edgesIgnoringSafeArea(.trailing)
         }
     }
 }
@@ -102,7 +103,7 @@ struct HomeMadeTimelapseView : View {
 
 struct FlowView_Previews: PreviewProvider {
     static var previews: some View {
-        FlowView(pizza: .constant([]))
+        FlowView(pizza: .constant(Ingredient.Kind.allCases.map { Ingredient(type: $0, scene: IngredientScene(ingredientKind: $0)) } + Ingredient.Kind.allCases.map { Ingredient(type: $0, scene: IngredientScene(ingredientKind: $0)) } + Ingredient.Kind.allCases.map { Ingredient(type: $0, scene: IngredientScene(ingredientKind: $0)) }))
             .environmentObject(AudioManager())
             .previewInterfaceOrientation(.landscapeLeft)
     }
