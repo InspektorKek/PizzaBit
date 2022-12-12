@@ -49,4 +49,3 @@ struct Ingredient: Identifiable {
     }
 }
 
-//var garniture = [tomatoSprite,oilSprite,basilSprite,mozzaSprite]

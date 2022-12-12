@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  PlaygroundView.swift
 //  PizzaBit
 //
 //  Created by Sarah Ndenbe on 06/12/22.
@@ -9,12 +9,28 @@ import SwiftUI
 import AVKit
 import CoreHaptics
 import SpriteKit
-
+/*
+ class TheGameState : ObservableObject {
+    @Published var gameScore : Int
+    @Published var highScore : Int
+    @Published var needUpdate : Bool
+    @Published var scoreToDisplay : String
+    @Published var isOnAir : Bool
+    
+    init(){
+        gameScore = 0
+        highScore = 0
+        needUpdate = false
+        scoreToDisplay = "000"
+        isOnAir = true
+    }
+}
+*/
 struct PlaygroundView: View {
+ //   @StateObject var gameState = TheGameState()
     @StateObject var audioManager = AudioManager()
     @State private var engine : CHHapticEngine?
     
-    @State  var musicTrigger : Bool = false
     @State var ingredient : String = "an ingredient"
     
     @State var musicLevel : String
@@ -29,9 +45,9 @@ struct PlaygroundView: View {
                 Spacer()
                 Button {
                     audioManager.playPause()
-                    musicTrigger.toggle()
+                    audioManager.isPlaying = false
                 } label: {
-                    Image(musicTrigger ? "play" : "pause")
+                    Image(audioManager.isPlaying ? "pause" : "play")
                         .resizable()
                         .frame(width: 32,height: 32)
                 }
@@ -51,7 +67,7 @@ struct PlaygroundView: View {
                         prepareHaptics()
                         playIngredientHapticsFile(ing.haptic)
                     } label: {
-                        LozengeBtn(pictoName: ing.imgName, rotationEffect: 45, frame: 75)
+                        Lozenge(pictoName: ing.imgName, rotationEffect: 45, frame: 75)
                             .padding(.horizontal)
                         
                     }.padding(.bottom, ing.type == .oil || ing.type == .basil ?  0 : 30)
@@ -70,8 +86,16 @@ struct PlaygroundView: View {
                 .ignoresSafeArea()
         }
         .navigationBarBackButtonHidden()
-        .onAppear {
+        .onAppear(){
+            withAnimation(.linear(duration: 10).delay(0.5).repeatForever(autoreverses: true)){}
             audioManager.startPlayer(messageAudioName: musicLevel)
+           
+        }
+        .overlay{
+            if audioManager.isPlaying == false {
+                    GamePauseView(musicLevel: $musicLevel).environmentObject(audioManager)
+                
+            }
         }
     }
     
@@ -124,7 +148,8 @@ struct PlaygroundView: View {
 }
 
 
-struct LozengeBtn : View {
+struct Lozenge : View {
+    var gradient : [Color] = [Color(uiColor: .systemBackground),Color(uiColor: .systemGray6),Color(uiColor: .systemGray2)]
     var pictoName : String = ""
     var cornerRadius : Double = 20
     var rotationEffect : Double
@@ -133,7 +158,7 @@ struct LozengeBtn : View {
         ZStack{
             RoundedRectangle(cornerRadius: cornerRadius)
                 .foregroundColor(.clear)
-                .background(RadialGradient(colors: [Color(uiColor: .systemBackground),Color(uiColor: .systemGray6),Color(uiColor: .systemGray2)], center: .center, startRadius: 0, endRadius: 80))
+                .background(RadialGradient(colors: gradient, center: .center, startRadius: 0, endRadius: 80))
             
                 .clipShape( RoundedRectangle(cornerRadius: 20))
                 .frame(width: frame,height: frame)
@@ -159,6 +184,6 @@ struct LozengeBtn : View {
 struct PlaygroundView_Previews: PreviewProvider {
     static var previews: some View {
         PlaygroundView(musicLevel: "Pizza_Medium")
-            .previewInterfaceOrientation(.landscapeLeft)
+        //    .previewInterfaceOrientation(.landscapeLeft)
     }
 }
