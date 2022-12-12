@@ -31,6 +31,7 @@
 		E1B13CD52945F0C6006707A2 /* IsWasted.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1B13CD32945F006006707A2 /* IsWasted.ttf */; };
 		E1B13CDC2947BD46006707A2 /* GamePauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B13CDB2947BD46006707A2 /* GamePauseView.swift */; };
 		E1B13CE32947EDBF006707A2 /* PERFECTIONIST.wav in Resources */ = {isa = PBXBuildFile; fileRef = E1B13CE22947EDBF006707A2 /* PERFECTIONIST.wav */; };
+		E1B13CE52947EE75006707A2 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B13CE42947EE75006707A2 /* GameOverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		E1B13CD32945F006006707A2 /* IsWasted.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IsWasted.ttf; sourceTree = "<group>"; };
 		E1B13CDB2947BD46006707A2 /* GamePauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePauseView.swift; sourceTree = "<group>"; };
 		E1B13CE22947EDBF006707A2 /* PERFECTIONIST.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = PERFECTIONIST.wav; sourceTree = "<group>"; };
+		E1B13CE42947EE75006707A2 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				E127283F29432D4900CDD761 /* FlowView.swift */,
+				E1B13CE42947EE75006707A2 /* GameOverView.swift */,
 				E1B13CDB2947BD46006707A2 /* GamePauseView.swift */,
 				E1B13CBC2943EAC8006707A2 /* PointsView.swift */,
 				E127284129432E0F00CDD761 /* PlaygroundView.swift */,
@@ -276,6 +279,7 @@
 				E12728142941595D00CDD761 /* AudioManager.swift in Sources */,
 				B3AC84CB29409284008EC2AC /* PizzaBitApp.swift in Sources */,
 				B391F674294632D200F6E710 /* IngredientScene.swift in Sources */,
+				E1B13CE52947EE75006707A2 /* GameOverView.swift in Sources */,
 				B3F4A0E22946924400D3F283 /* SceneFabric.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
