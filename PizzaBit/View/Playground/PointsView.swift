@@ -28,6 +28,7 @@ struct PointsView: View {
                     Text(combo)
                         .font(.custom("Blocktopia", size: 45))
                         .foregroundColor(Color("Dough"))
+                        
                 }.padding(.leading,56)
                     .padding(.top)
                     .shadow(color: Color(uiColor: .systemPurple), radius:0,x:0.75, y: 0.25)

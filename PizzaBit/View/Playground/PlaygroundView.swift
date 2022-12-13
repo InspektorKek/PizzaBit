@@ -89,12 +89,15 @@ struct PlaygroundView: View {
         .onAppear(){
             withAnimation(.linear(duration: 10).delay(0.5).repeatForever(autoreverses: true)){}
             audioManager.startPlayer(messageAudioName: musicLevel)
-           
+            
         }
         .overlay{
             if audioManager.isPlaying == false {
                     GamePauseView(musicLevel: $musicLevel).environmentObject(audioManager)
                 
+            } else if (audioManager.isPlaying == true && audioManager.isOver == true ){
+                GameOverView(isGameOver: $audioManager.isOver)
+                    .environmentObject(audioManager)
             }
             
             

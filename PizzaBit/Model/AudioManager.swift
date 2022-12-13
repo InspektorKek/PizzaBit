@@ -18,6 +18,11 @@ import AVKit
            print("is Playing ", isPlaying )
        }
    }
+    @Published  var isOver : Bool = false{
+        didSet {
+            print("is Over ", isOver )
+        }
+    }
    
    func startPlayer(messageAudioName : String){
        guard let sourceFileURL = Bundle.main.url(forResource: messageAudioName, withExtension: "wav")  else {
@@ -52,14 +57,24 @@ import AVKit
        if player.isPlaying {
            player.pause()
            isPlaying = false
-       }   else if (player.isPlaying == false && player.currentTime == 0.0) {
-           player.stop()
-           isPlaying = false
+           isOver = false
        }else{
            player.play()
            isPlaying = true
+           isOver = false
        }
    }
+    
+    func stopIt(){
+        guard let player = player else {
+            print("Issue with audio not found")
+            return
+        }
+        player.stop()
+        isOver = true
+        isPlaying = false
+    }
+    
     
     @Published public var ingredientName : String = ""
  

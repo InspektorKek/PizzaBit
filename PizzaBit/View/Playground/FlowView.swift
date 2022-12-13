@@ -24,7 +24,7 @@ struct FlowView: View {
         VStack(spacing: 0) {
             HStack {
                 Spacer()
-                HomeMadeTimelapseView()
+                HomeMadeTimelapseView(isGameOver: $audioManager.isOver)
                     .frame(height: 20)
                     .frame(width: 300)
                     .padding(.trailing, 30)
@@ -65,8 +65,8 @@ struct StreamingIngredientGrid : View {
 
 struct HomeMadeTimelapseView : View {
     @EnvironmentObject var audioManager : AudioManager
-    @State var width : CGFloat = 0
-    
+    @State var width : CGFloat = 0.2
+    @Binding var isGameOver : Bool
     var body: some View {
         VStack(spacing : 20){
             ZStack(alignment: .leading){
@@ -74,19 +74,25 @@ struct HomeMadeTimelapseView : View {
                 Rectangle().fill(.red).frame(width: self.width, height: 15)
                     .onAppear{
                         Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ (_) in
-                            if ((audioManager.player?.isPlaying) != nil){
+                            if ((audioManager.player?.isPlaying) == true){
 
-                                let timelapseWidth = 360
+                                let timelapseWidth = 355
 
                                 let value = audioManager.player!.currentTime / audioManager.player!.duration
-                                 print("current time : \(audioManager.player!.currentTime )\nduration: \(audioManager.player!.duration)")
+                              
                                 
                                 width = CGFloat(timelapseWidth) * CGFloat(value)
                                 
+                                
+                                
+                            }else if ((audioManager.player?.isPlaying) == false){
+                                
+                                isGameOver = true
                             }
                             
                         }
-                        
+                       
+                         
                     }
     
         
@@ -96,6 +102,7 @@ struct HomeMadeTimelapseView : View {
                 .frame(width: 385,height: 20)
         } .offset(y: 4)
         }
+        
     }
 }
 /*

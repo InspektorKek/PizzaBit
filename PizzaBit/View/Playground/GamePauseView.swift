@@ -28,8 +28,8 @@ struct GamePauseView: View {
                         
                     VStack {
                         Spacer()
-                        Text("Pause")
-                            .font(.custom("Blocktopia", size: 70))
+                        Text("PAUSE")
+                            .font(.custom("PixelatedPusab", size: 50))
                             .foregroundColor(Color("Dough"))
                                 .shadow(color: Color(uiColor: .systemPurple), radius:0,x:0.75, y: 0.25)
                                 .shadow(color: Color(uiColor: .systemGreen), radius:0,x:-0.75, y: -0.25)
@@ -48,10 +48,10 @@ struct GamePauseView: View {
                                 HStack {
                                   
                                     Label("Continue", systemImage: "play.fill")
-                                        .foregroundColor(Color("Dough"))
-                                        .shadow(color: Color(uiColor: .systemGreen),radius: 2,x: -1,y: 2)
+                                        .foregroundColor(Color(uiColor: .systemGreen))
+                                        .shadow(color: Color(.white),radius: 2,x: -1,y: 2)
                                         .labelStyle(.iconOnly)
-                                        .font(.system(size: 35))
+                                        .font(.system(size: 25))
                                         .bold()
                                     Text("Continue")
                                         .foregroundColor(Color(uiColor: .systemGreen))
@@ -63,14 +63,15 @@ struct GamePauseView: View {
                                 audioManager.player?.currentTime = 0.0
                                 audioManager.player?.play()
                                 audioManager.isPlaying = true
+                                audioManager.isOver = false
                             } label: {
                                 
                                 HStack {
                                     Label("Restart", systemImage: "arrow.counterclockwise")
-                                        .foregroundColor(Color("Dough"))
-                                        .shadow(color: Color(uiColor: .systemGray),radius: 1,x: 0,y: 2)
+                                        .foregroundColor(Color(uiColor: .systemGray))
+                                        .shadow(color: Color(.white),radius: 1,x: 0,y: 2)
                                         .labelStyle(.iconOnly)
-                                        .font(.system(size: 35))
+                                        .font(.system(size: 25))
                                         .bold()
                                     Text("Restart")
                                         .foregroundColor(Color(uiColor: .systemGray))
@@ -81,7 +82,10 @@ struct GamePauseView: View {
                             }
                             Spacer()
                             NavigationLink {
-                                    LevelView()
+                                LevelView()
+                                    .onAppear{
+                                        audioManager.stopIt()
+                                    }
                                 //close the view
                                 //make the player current time at zero
                                 // play the song
@@ -89,10 +93,10 @@ struct GamePauseView: View {
                                 
                                 HStack {
                                     Label("Abandon", systemImage: "stop.fill")
-                                        .foregroundColor(Color("Dough"))
-                                        .shadow(color: Color(uiColor: .systemPurple),radius: 2,x: 1,y: 2)
+                                        .foregroundColor(Color(uiColor: .systemPurple))
+                                        .shadow(color: Color(.white),radius: 2,x: 1,y: 2)
                                         .labelStyle(.iconOnly)
-                                        .font(.system(size: 35))
+                                        .font(.system(size: 25))
                                         .bold()
                                         
                                     Text("Abandon")
