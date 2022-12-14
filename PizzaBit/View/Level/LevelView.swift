@@ -10,6 +10,12 @@ import SpriteKit
 
 struct LevelView: View {
     var body: some View {
+        var easySpriteView =
+        SpriteView(scene : SceneFabric.shared.theGameSceneEasy , options: [.allowsTransparency])
+        var mediumSpriteView =
+        SpriteView(scene : SceneFabric.shared.theGameSceneNormal , options: [.allowsTransparency])
+        var hardSpriteView =
+        SpriteView(scene : SceneFabric.shared.theGameSceneEasy , options: [.allowsTransparency])
         
         NavigationView {
             HStack {
@@ -19,18 +25,18 @@ struct LevelView: View {
                 VStack(alignment: .trailing){
                     Spacer()
                     NavigationLink {
-                        PlaygroundView( musicLevel: "Pizza_Easy", theGameScene: GameScene(music: "Pizza_Easy", beat: 0.6667 * 2, bar: 2.6667 * 2, level_multiplier: 1,size: CGSize(width: 600, height: 200)))
+                        PlaygroundView( musicLevel: "Pizza_Easy", theGameScene: SceneFabric.shared.theGameSceneEasy)
                     } label: {
                         Text("Easy")
                     }
                     NavigationLink {
-                        PlaygroundView( musicLevel: "Pizza_Medium", theGameScene: GameScene(music: "Pizza_Medium", beat: 0.6667 * 2, bar: 2.6667 * 2, level_multiplier: 1,size: CGSize(width: 600, height: 200)))
+                        PlaygroundView( musicLevel: "Pizza_Medium", theGameScene: SceneFabric.shared.theGameSceneNormal)
                     } label: {
                         Text("Normal")
                         
                     }
                     NavigationLink {
-                        PlaygroundView( musicLevel: "PERFECTIONIST", theGameScene: GameScene(music: "PERFECTIONIST", beat: 0.6667 * 2, bar: 2.6667 * 2, level_multiplier: 1,size: CGSize(width: 600, height: 200)))
+                        PlaygroundView( musicLevel: "PERFECTIONIST", theGameScene: SceneFabric.shared.theGameSceneHard)
                     } label: {
                         Text("Hard")
                     }

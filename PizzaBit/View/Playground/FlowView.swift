@@ -16,8 +16,11 @@ struct FlowView: View {
     var scene: SKScene {
         let scene = SKScene(fileNamed: "FlowScene")!
         scene.scaleMode = .fill
+        scene.backgroundColor = .clear
         return scene
     }
+    
+    
     
     var body: some View {
         // Flow where ingredients run
@@ -31,10 +34,11 @@ struct FlowView: View {
                         .padding(.trailing, 30)
                 }
                 
-                SpriteView(scene: scene)
+                SpriteView(scene: scene , options: .allowsTransparency)
                     .frame(height: 120)
                     .frame(maxWidth: .infinity)
                     .edgesIgnoringSafeArea(.trailing)
+                    
             }
             StreamingIngredientGrid( theGameScene: $theGameScene)
                 .environmentObject(audioManager)
@@ -50,7 +54,7 @@ struct StreamingIngredientGrid : View {
     @EnvironmentObject var audioManager : AudioManager
     @Binding var theGameScene : GameScene
     var gscene: SKScene {
-        let theGameScene = GameScene(music: "Pizza Easy", beat: 0.6667 * 2, bar: 2.6667 * 2, level_multiplier: 1,size: CGSize(width: 600, height: 200))
+        let theGameScene = theGameScene
         theGameScene.size = CGSize(width: 740, height: 100)
         theGameScene.scaleMode = .aspectFit
         theGameScene.backgroundColor = .clear
@@ -60,7 +64,7 @@ struct StreamingIngredientGrid : View {
     
     var body: some View {
         // Using the SpriteView, show the game scene in your SwiftUI view
-        SpriteView(scene: theGameScene, isPaused: !audioManager.isPlaying)
+        SpriteView(scene: theGameScene, isPaused: !audioManager.isPlaying, options: .allowsTransparency)
             .frame(width: 740, height: 100)
             .ignoresSafeArea()
     }

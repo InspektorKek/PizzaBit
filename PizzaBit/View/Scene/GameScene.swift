@@ -12,10 +12,13 @@ class GameScene: SKScene {
     
     
     //MARK: DEFINE BUTTONS AND OTHER NODES IN THE SCENE
+    var miniChef = ChefSprite()
+    /*
     var buttonTomato = SKSpriteNode(imageNamed: "0tomato")
     var buttonMozzarella = SKSpriteNode(imageNamed: "0mozzarella")
     var buttonBasil = SKSpriteNode(imageNamed: "0basil")
     var buttonOil = SKSpriteNode(imageNamed: "0oil")
+     */
     var clickIndicator = SKLabelNode(text: "click here!")
     var livesIndicator = SKLabelNode()
     var pointsLabel = SKLabelNode()
@@ -24,7 +27,7 @@ class GameScene: SKScene {
     var combo: Int = 0
     var level_multiplier: Int
     var points: Int = 0
-    var lives: Int = 3
+    var lives: Int = 100
     var beat: Double
     var bar: Double
     
@@ -35,6 +38,7 @@ class GameScene: SKScene {
         self.level_multiplier = level_multiplier
         self.livesIndicator = SKLabelNode(text: "Lives: \(lives)")
         self.pointsLabel = SKLabelNode(text: "Points: \(points) | Multiplier: \(combo_multiplier)")
+      
         
         super.init(size: size)
         
@@ -50,7 +54,7 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         //define button properties
         
-        
+        /*
         let buttonDefaultCoordinateY: Double = frame.midY * 0.5
         
         buttonTomato.position = CGPoint(x: frame.midX * 0.3, y: buttonDefaultCoordinateY)
@@ -68,7 +72,7 @@ class GameScene: SKScene {
         buttonOil.position = CGPoint(x: frame.midX * 1.6, y: buttonDefaultCoordinateY)
         buttonOil.name = "OIL"
         buttonOil.size = CGSize(width: 32, height: 32)
-        
+        */
         livesIndicator.position = CGPoint(x: frame.midX * 0.6 , y: frame.midY * 1.5)
         livesIndicator.fontSize = CGFloat(8)
         
@@ -78,10 +82,17 @@ class GameScene: SKScene {
         pointsLabel.position = CGPoint(x: frame.midX * 0.3 , y: frame.midY * 1.3)
         pointsLabel.fontSize = CGFloat(8)
         
+        miniChef.position = CGPoint(x: frame.midX * 0.2, y: frame.midY)
+        miniChef.zPosition = CGFloat(1)
+        miniChef.size = CGSize(width: 64, height: 64)
+        /*
         addChild(buttonTomato)
         addChild(buttonMozzarella)
         addChild(buttonBasil)
         addChild(buttonOil)
+         */
+        
+        addChild(miniChef)
         addChild(clickIndicator)
         addChild(livesIndicator)
         addChild(pointsLabel)
@@ -130,7 +141,7 @@ class GameScene: SKScene {
         }
         if lives <= 0 {
             livesIndicator.text = "You Lost :("
-        //    audioManager.stopIt()
+            
             let scene:SKScene = GameOverScene(size: frame.size)
             scene.backgroundColor = .clear
             self.view!.presentScene(scene)
@@ -163,6 +174,8 @@ class GameScene: SKScene {
     
     //checks if the correct button was pressed at the right moment
     func defineSuccess(buttonPressed: String){
+        miniChef.createKickAnimation()
+        miniChef.run(miniChef.kickAnimation)
         let obj = nodes(at: CGPoint(x: frame.midX * 0.4, y: frame.midY))
         if obj.isEmpty == true {
             displayResult(resultText: "Miss!")
