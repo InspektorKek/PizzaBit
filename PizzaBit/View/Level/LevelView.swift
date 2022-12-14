@@ -19,18 +19,18 @@ struct LevelView: View {
                 VStack(alignment: .trailing){
                     Spacer()
                     NavigationLink {
-                        PlaygroundView( musicLevel: "Pizza_Easy")
+                        PlaygroundView( musicLevel: "Pizza_Easy", theGameScene: GameScene(music: "Pizza_Easy", beat: 0.6667 * 2, bar: 2.6667 * 2, level_multiplier: 1,size: CGSize(width: 600, height: 200)))
                     } label: {
                         Text("Easy")
                     }
                     NavigationLink {
-                        PlaygroundView( musicLevel: "Pizza_Medium")
+                        PlaygroundView( musicLevel: "Pizza_Medium", theGameScene: GameScene(music: "Pizza_Medium", beat: 0.6667 * 2, bar: 2.6667 * 2, level_multiplier: 1,size: CGSize(width: 600, height: 200)))
                     } label: {
                         Text("Normal")
                         
                     }
                     NavigationLink {
-                        PlaygroundView( musicLevel: "PERFECTIONIST")
+                        PlaygroundView( musicLevel: "PERFECTIONIST", theGameScene: GameScene(music: "PERFECTIONIST", beat: 0.6667 * 2, bar: 2.6667 * 2, level_multiplier: 1,size: CGSize(width: 600, height: 200)))
                     } label: {
                         Text("Hard")
                     }

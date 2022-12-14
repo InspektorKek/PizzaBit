@@ -119,6 +119,6 @@ struct GamePauseView: View {
 struct GamePauseView_Previews: PreviewProvider {
     static var previews: some View {
       // GamePauseView(musicLevel: <#T##Binding<String>#>)
-        PlaygroundView(musicLevel: "Pizza_Medium")
+        PlaygroundView(musicLevel: "Pizza_Medium", theGameScene: GameScene(music: "Pizza_Medium", beat: 0.6667 * 2, bar: 2.6667 * 2, level_multiplier: 1,size: CGSize(width: 600, height: 200)))
     }
 }

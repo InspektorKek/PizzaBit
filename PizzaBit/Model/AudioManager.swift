@@ -11,19 +11,21 @@ import AVKit
 
 @MainActor  class AudioManager : ObservableObject {
 
-   
-   var player : AVAudioPlayer?
-   @Published  var isPlaying : Bool = false{
-       didSet {
-           print("is Playing ", isPlaying )
-       }
-   }
-    @Published  var isOver : Bool = false{
-        didSet {
-            print("is Over ", isOver )
-        }
+    
+    var player : AVAudioPlayer?
+    @Published  var isPlaying : Bool = false{
+    didSet {
+        print("is Playing ", isPlaying )
     }
+}
+    @Published  var isOver : Bool = false{
+    didSet {
+        print("is Over ", isOver )
+    }
+}
    
+    
+    
    func startPlayer(messageAudioName : String){
        guard let sourceFileURL = Bundle.main.url(forResource: messageAudioName, withExtension: "wav")  else {
            print("Audio file not found: \(messageAudioName)")
@@ -31,15 +33,15 @@ import AVKit
        }
        
        do{
-           
            // So the sound keeps playing in background and keeps playing in silent mode
-           try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord,
+           try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback,
                                    mode: .default)
            
            try AVAudioSession.sharedInstance().setActive(true)
            player = try AVAudioPlayer(contentsOf: sourceFileURL)
            player?.prepareToPlay()
            player?.play()
+           player?.volume = 1.0
            isPlaying = true
        }catch{
            print("Fail to play", error)
@@ -47,12 +49,13 @@ import AVKit
        
    }
    
- 
    func playPause()  {
        guard let player = player else {
            print("Issue with audio not found")
            return
        }
+       
+      
        
        if player.isPlaying {
            player.pause()
@@ -74,9 +77,6 @@ import AVKit
         isOver = true
         isPlaying = false
     }
-    
-    
-    @Published public var ingredientName : String = ""
  
 }
 

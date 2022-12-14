@@ -34,6 +34,7 @@ struct PlaygroundView: View {
     @State var ingredient : String = "an ingredient"
     
     @State var musicLevel : String
+    @State var theGameScene : GameScene
     
     @State var pizza: [Ingredient] = Ingredient.Kind.allCases.map { Ingredient(type: $0, scene: IngredientScene(ingredientKind: $0)) }
     
@@ -55,7 +56,7 @@ struct PlaygroundView: View {
             .padding(.horizontal)
             .padding(.top)
             
-            FlowView(pizza: $pizza)
+            FlowView(theGameScene: $theGameScene)
                 .environmentObject(audioManager)
                 .padding(.leading)
             
@@ -66,6 +67,9 @@ struct PlaygroundView: View {
                         ingredient = ing.type.name
                         prepareHaptics()
                         playIngredientHapticsFile(ing.haptic)
+                        theGameScene.defineSuccess(
+                            buttonPressed: ing.type.name == "TOMATO" ? "Tomato" : ing.type.name == "BASIL" ? "Basil" : ing.type.name == "OIL" ? "Oil" : "Mozzarella"
+                        )
                     } label: {
                         Lozenge(pictoName: ing.imgName, rotationEffect: 45, frame: 75)
                             .padding(.horizontal)
@@ -189,7 +193,7 @@ struct Lozenge : View {
 
 struct PlaygroundView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaygroundView(musicLevel: "Pizza_Medium")
+        PlaygroundView(musicLevel: "Pizza_Medium", theGameScene: GameScene(music: "Pizza Medium", beat: 0.6667 * 2, bar: 2.6667 * 2, level_multiplier: 1,size: CGSize(width: 600, height: 200)))
         //    .previewInterfaceOrientation(.landscapeLeft)
     }
 }

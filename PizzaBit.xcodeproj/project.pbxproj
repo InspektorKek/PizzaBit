@@ -22,6 +22,7 @@
 		E127281C2941597B00CDD761 /* oil.ahap in Resources */ = {isa = PBXBuildFile; fileRef = E12728182941597B00CDD761 /* oil.ahap */; };
 		E127284029432D4900CDD761 /* FlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E127283F29432D4900CDD761 /* FlowView.swift */; };
 		E127284229432E0F00CDD761 /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E127284129432E0F00CDD761 /* PlaygroundView.swift */; };
+		E1A55520294A173B0019CD1A /* PERFECTIONIST.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1A5551F294A173B0019CD1A /* PERFECTIONIST.mp3 */; };
 		E1B13CB929437F01006707A2 /* Pizza_Easy.wav in Resources */ = {isa = PBXBuildFile; fileRef = E1B13CB829437F01006707A2 /* Pizza_Easy.wav */; };
 		E1B13CBB29437F27006707A2 /* Pizza_Medium.wav in Resources */ = {isa = PBXBuildFile; fileRef = E1B13CBA29437F27006707A2 /* Pizza_Medium.wav */; };
 		E1B13CBD2943EAC8006707A2 /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B13CBC2943EAC8006707A2 /* PointsView.swift */; };
@@ -32,6 +33,10 @@
 		E1B13CDC2947BD46006707A2 /* GamePauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B13CDB2947BD46006707A2 /* GamePauseView.swift */; };
 		E1B13CE32947EDBF006707A2 /* PERFECTIONIST.wav in Resources */ = {isa = PBXBuildFile; fileRef = E1B13CE22947EDBF006707A2 /* PERFECTIONIST.wav */; };
 		E1B13CE52947EE75006707A2 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B13CE42947EE75006707A2 /* GameOverView.swift */; };
+		E1B13CE82949D66B006707A2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B13CE72949D66B006707A2 /* GameScene.swift */; };
+		E1B13CEA2949D9FA006707A2 /* IngredientSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B13CE92949D9FA006707A2 /* IngredientSprite.swift */; };
+		E1B13CEC2949DFB8006707A2 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B13CEB2949DFB8006707A2 /* GameOverScene.swift */; };
+		E1B13CEE2949DFF6006707A2 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B13CED2949DFF6006707A2 /* MenuScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +56,7 @@
 		E12728182941597B00CDD761 /* oil.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = oil.ahap; sourceTree = "<group>"; };
 		E127283F29432D4900CDD761 /* FlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowView.swift; sourceTree = "<group>"; };
 		E127284129432E0F00CDD761 /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
+		E1A5551F294A173B0019CD1A /* PERFECTIONIST.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PERFECTIONIST.mp3; sourceTree = "<group>"; };
 		E1B13CB829437F01006707A2 /* Pizza_Easy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Pizza_Easy.wav; sourceTree = "<group>"; };
 		E1B13CBA29437F27006707A2 /* Pizza_Medium.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Pizza_Medium.wav; sourceTree = "<group>"; };
 		E1B13CBC2943EAC8006707A2 /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
@@ -62,6 +68,10 @@
 		E1B13CDB2947BD46006707A2 /* GamePauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePauseView.swift; sourceTree = "<group>"; };
 		E1B13CE22947EDBF006707A2 /* PERFECTIONIST.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = PERFECTIONIST.wav; sourceTree = "<group>"; };
 		E1B13CE42947EE75006707A2 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		E1B13CE72949D66B006707A2 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		E1B13CE92949D9FA006707A2 /* IngredientSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSprite.swift; sourceTree = "<group>"; };
+		E1B13CEB2949DFB8006707A2 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		E1B13CED2949DFF6006707A2 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +141,7 @@
 		E127280F2941589A00CDD761 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E1B13CE62949D64B006707A2 /* Scene */,
 				E1B13CBE2943F683006707A2 /* Level */,
 				E127284329432E2200CDD761 /* Playground */,
 			);
@@ -143,6 +154,7 @@
 				E1B13CBA29437F27006707A2 /* Pizza_Medium.wav */,
 				E1B13CB829437F01006707A2 /* Pizza_Easy.wav */,
 				E1B13CE22947EDBF006707A2 /* PERFECTIONIST.wav */,
+				E1A5551F294A173B0019CD1A /* PERFECTIONIST.mp3 */,
 			);
 			path = OST;
 			sourceTree = "<group>";
@@ -186,6 +198,17 @@
 				E1B13CCA294496AE006707A2 /* Fonts */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E1B13CE62949D64B006707A2 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				E1B13CE72949D66B006707A2 /* GameScene.swift */,
+				E1B13CED2949DFF6006707A2 /* MenuScene.swift */,
+				E1B13CEB2949DFB8006707A2 /* GameOverScene.swift */,
+				E1B13CE92949D9FA006707A2 /* IngredientSprite.swift */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1A55520294A173B0019CD1A /* PERFECTIONIST.mp3 in Resources */,
 				E1B13CE32947EDBF006707A2 /* PERFECTIONIST.wav in Resources */,
 				E1B13CD12944A946006707A2 /* Blocktopia.ttf in Resources */,
 				E1B13CBB29437F27006707A2 /* Pizza_Medium.wav in Resources */,
@@ -277,8 +301,12 @@
 				E12728132941595D00CDD761 /* IngredientsModel.swift in Sources */,
 				E1B13CDC2947BD46006707A2 /* GamePauseView.swift in Sources */,
 				E12728142941595D00CDD761 /* AudioManager.swift in Sources */,
+				E1B13CE82949D66B006707A2 /* GameScene.swift in Sources */,
 				B3AC84CB29409284008EC2AC /* PizzaBitApp.swift in Sources */,
+				E1B13CEC2949DFB8006707A2 /* GameOverScene.swift in Sources */,
 				B391F674294632D200F6E710 /* IngredientScene.swift in Sources */,
+				E1B13CEA2949D9FA006707A2 /* IngredientSprite.swift in Sources */,
+				E1B13CEE2949DFF6006707A2 /* MenuScene.swift in Sources */,
 				E1B13CE52947EE75006707A2 /* GameOverView.swift in Sources */,
 				B3F4A0E22946924400D3F283 /* SceneFabric.swift in Sources */,
 			);
@@ -419,7 +447,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 38BRD9SJV7;
+				DEVELOPMENT_TEAM = A6GC5K5ERX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PizzaBit/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -450,7 +478,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 38BRD9SJV7;
+				DEVELOPMENT_TEAM = A6GC5K5ERX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PizzaBit/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
