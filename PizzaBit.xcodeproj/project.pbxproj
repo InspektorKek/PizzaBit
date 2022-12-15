@@ -22,6 +22,10 @@
 		E127281C2941597B00CDD761 /* oil.ahap in Resources */ = {isa = PBXBuildFile; fileRef = E12728182941597B00CDD761 /* oil.ahap */; };
 		E127284029432D4900CDD761 /* FlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E127283F29432D4900CDD761 /* FlowView.swift */; };
 		E127284229432E0F00CDD761 /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E127284129432E0F00CDD761 /* PlaygroundView.swift */; };
+		E1A2BC09294B1CEE00CBFB13 /* HitZoneSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2BC08294B1CEE00CBFB13 /* HitZoneSprite.swift */; };
+		E1A2BC0D294B214F00CBFB13 /* Lost but not defeated.wav in Resources */ = {isa = PBXBuildFile; fileRef = E1A2BC0A294B214F00CBFB13 /* Lost but not defeated.wav */; };
+		E1A2BC0E294B214F00CBFB13 /* The Greatest Chef.wav in Resources */ = {isa = PBXBuildFile; fileRef = E1A2BC0B294B214F00CBFB13 /* The Greatest Chef.wav */; };
+		E1A2BC0F294B214F00CBFB13 /* Aube Is A Chef!.wav in Resources */ = {isa = PBXBuildFile; fileRef = E1A2BC0C294B214F00CBFB13 /* Aube Is A Chef!.wav */; };
 		E1A55520294A173B0019CD1A /* PERFECTIONIST.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E1A5551F294A173B0019CD1A /* PERFECTIONIST.mp3 */; };
 		E1A55522294A4A620019CD1A /* ChefSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A55521294A4A620019CD1A /* ChefSprite.swift */; };
 		E1B13CB929437F01006707A2 /* Pizza_Easy.wav in Resources */ = {isa = PBXBuildFile; fileRef = E1B13CB829437F01006707A2 /* Pizza_Easy.wav */; };
@@ -57,6 +61,10 @@
 		E12728182941597B00CDD761 /* oil.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = oil.ahap; sourceTree = "<group>"; };
 		E127283F29432D4900CDD761 /* FlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowView.swift; sourceTree = "<group>"; };
 		E127284129432E0F00CDD761 /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; usesTabs = 0; };
+		E1A2BC08294B1CEE00CBFB13 /* HitZoneSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitZoneSprite.swift; sourceTree = "<group>"; };
+		E1A2BC0A294B214F00CBFB13 /* Lost but not defeated.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Lost but not defeated.wav"; sourceTree = "<group>"; };
+		E1A2BC0B294B214F00CBFB13 /* The Greatest Chef.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "The Greatest Chef.wav"; sourceTree = "<group>"; };
+		E1A2BC0C294B214F00CBFB13 /* Aube Is A Chef!.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Aube Is A Chef!.wav"; sourceTree = "<group>"; };
 		E1A5551F294A173B0019CD1A /* PERFECTIONIST.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PERFECTIONIST.mp3; sourceTree = "<group>"; };
 		E1A55521294A4A620019CD1A /* ChefSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefSprite.swift; sourceTree = "<group>"; };
 		E1B13CB829437F01006707A2 /* Pizza_Easy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Pizza_Easy.wav; sourceTree = "<group>"; };
@@ -153,6 +161,9 @@
 		E12728102941591000CDD761 /* OST */ = {
 			isa = PBXGroup;
 			children = (
+				E1A2BC0C294B214F00CBFB13 /* Aube Is A Chef!.wav */,
+				E1A2BC0A294B214F00CBFB13 /* Lost but not defeated.wav */,
+				E1A2BC0B294B214F00CBFB13 /* The Greatest Chef.wav */,
 				E1B13CBA29437F27006707A2 /* Pizza_Medium.wav */,
 				E1B13CB829437F01006707A2 /* Pizza_Easy.wav */,
 				E1B13CE22947EDBF006707A2 /* PERFECTIONIST.wav */,
@@ -206,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				E1B13CE72949D66B006707A2 /* GameScene.swift */,
+				E1A2BC08294B1CEE00CBFB13 /* HitZoneSprite.swift */,
 				E1A55521294A4A620019CD1A /* ChefSprite.swift */,
 				E1B13CED2949DFF6006707A2 /* MenuScene.swift */,
 				E1B13CEB2949DFB8006707A2 /* GameOverScene.swift */,
@@ -272,12 +284,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1A2BC0D294B214F00CBFB13 /* Lost but not defeated.wav in Resources */,
 				E1A55520294A173B0019CD1A /* PERFECTIONIST.mp3 in Resources */,
 				E1B13CE32947EDBF006707A2 /* PERFECTIONIST.wav in Resources */,
 				E1B13CD12944A946006707A2 /* Blocktopia.ttf in Resources */,
 				E1B13CBB29437F27006707A2 /* Pizza_Medium.wav in Resources */,
 				E1B13CB929437F01006707A2 /* Pizza_Easy.wav in Resources */,
 				B3AC84D829409285008EC2AC /* Assets.xcassets in Resources */,
+				E1A2BC0E294B214F00CBFB13 /* The Greatest Chef.wav in Resources */,
 				E1B13CD52945F0C6006707A2 /* IsWasted.ttf in Resources */,
 				E1B13CD22944A949006707A2 /* PixelatedPusab.ttf in Resources */,
 				E127281B2941597B00CDD761 /* mozzarella.ahap in Resources */,
@@ -286,6 +300,7 @@
 				E127281C2941597B00CDD761 /* oil.ahap in Resources */,
 				B3F4A0EE2947387100D3F283 /* FlowScene.sks in Resources */,
 				E127281A2941597B00CDD761 /* tomato.ahap in Resources */,
+				E1A2BC0F294B214F00CBFB13 /* Aube Is A Chef!.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +323,7 @@
 				E1B13CE82949D66B006707A2 /* GameScene.swift in Sources */,
 				B3AC84CB29409284008EC2AC /* PizzaBitApp.swift in Sources */,
 				E1B13CEC2949DFB8006707A2 /* GameOverScene.swift in Sources */,
+				E1A2BC09294B1CEE00CBFB13 /* HitZoneSprite.swift in Sources */,
 				B391F674294632D200F6E710 /* IngredientScene.swift in Sources */,
 				E1B13CEA2949D9FA006707A2 /* IngredientSprite.swift in Sources */,
 				E1B13CEE2949DFF6006707A2 /* MenuScene.swift in Sources */,

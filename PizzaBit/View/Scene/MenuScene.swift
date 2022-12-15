@@ -41,15 +41,15 @@ class MenuScene: SKScene {
             switch touchedNode.name {
             case "Easy":
                 print("Easy Pressed")
-                let scene:SKScene = GameScene(music: "Pizza Easy", beat: 0.6667 * 2, bar: 2.6667 * 2, level_multiplier: 1,size: CGSize(width: frame.maxX, height: frame.maxY))
+                let scene:SKScene = GameScene(music: "Pizza Easy", beat: [0.6667 * 2], bar: 2.6667 * 2, level_multiplier: 1,size: CGSize(width: frame.maxX, height: frame.maxY))
                 self.view?.presentScene(scene)
             case "Medium":
                 print("Medium Pressed")
-                let scene:SKScene = GameScene(music: "Pizza Medium", beat: 0.5 * 2, bar: 2, level_multiplier: 2, size: CGSize(width: frame.maxX, height: frame.maxY))
+                let scene:SKScene = GameScene(music: "Pizza Medium", beat: [0.5 * 2], bar: 2, level_multiplier: 2, size: CGSize(width: frame.maxX, height: frame.maxY))
                 self.view?.presentScene(scene)
             case "Hard":
                 print("Hard Pressed")
-                let scene:SKScene = GameScene(music: "PERFECTIONIST", beat: 0.4, bar: 1.6, level_multiplier: 3, size: CGSize(width: frame.maxX, height: frame.maxY))
+                let scene:SKScene = GameScene(music: "PERFECTIONIST", beat: [0.4], bar: 1.6, level_multiplier: 3, size: CGSize(width: frame.maxX, height: frame.maxY))
                 self.view?.presentScene(scene)
             default:
                 print("nothing")

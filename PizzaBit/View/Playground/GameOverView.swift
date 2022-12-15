@@ -54,7 +54,7 @@ struct GameOverView: View {
                         .shadow(color: Color(uiColor: .systemPurple), radius: 0,x:1, y: 1)
                     
                     VStack {
-                        Text("Highscores")
+                        Text("Game Over")
                             .font(.custom("Blocktopia", size: 70))
                             .foregroundColor(Color("Dough"))
                             .shadow(color: Color(uiColor: .systemPurple), radius:0,x:0.75, y: 0.25)

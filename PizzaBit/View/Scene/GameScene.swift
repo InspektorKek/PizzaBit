@@ -19,27 +19,36 @@ class GameScene: SKScene {
     var buttonBasil = SKSpriteNode(imageNamed: "0basil")
     var buttonOil = SKSpriteNode(imageNamed: "0oil")
      */
-    var clickIndicator = SKLabelNode(text: "click here!")
+    
+    var flow = SKSpriteNode(imageNamed: "flow")
+    var clickIndicator = HitZoneSprite()
     var livesIndicator = SKLabelNode()
     var pointsLabel = SKLabelNode()
     var ingredientArray: [SKNode] = []
+    var audioManager = AudioManager()
     var combo_multiplier: Int = 1
     var combo: Int = 0
     var level_multiplier: Int
     var points: Int = 0
-    var lives: Int = 100
-    var beat: Double
+    var music: String
+    var lives: Int = 3
+    var beat: [Double]
     var bar: Double
+ //   var level_length: TimeInterval
+    var background = SKSpriteNode()
+    var isInvulnerable: Bool = false
     
     
-    init(music: String, beat: Double, bar: Double, level_multiplier: Int, size: CGSize){
+    init(music: String, beat: [Double], bar: Double, level_multiplier: Int, size: CGSize){
+        self.music = music
         self.beat = beat
         self.bar = bar
         self.level_multiplier = level_multiplier
         self.livesIndicator = SKLabelNode(text: "Lives: \(lives)")
         self.pointsLabel = SKLabelNode(text: "Points: \(points) | Multiplier: \(combo_multiplier)")
-      
-        
+     //   audioManager.startPlayer(messageAudioName: music)
+     //    audioManager.stopIt()
+      //  level_length = audioManager.player!.duration
         super.init(size: size)
         
         self.size = CGSize(width: 740, height: 100)
@@ -76,8 +85,10 @@ class GameScene: SKScene {
         livesIndicator.position = CGPoint(x: frame.midX * 0.6 , y: frame.midY * 1.5)
         livesIndicator.fontSize = CGFloat(8)
         
+        
         clickIndicator.position = CGPoint(x: frame.midX * 0.4, y: frame.midY)
-        clickIndicator.fontSize = CGFloat(8)
+        clickIndicator.name = "ClickIndicator"
+        clickIndicator.size = CGSize(width: 32, height: 32)
         
         pointsLabel.position = CGPoint(x: frame.midX * 0.3 , y: frame.midY * 1.3)
         pointsLabel.fontSize = CGFloat(8)
@@ -100,9 +111,9 @@ class GameScene: SKScene {
     }
     //MARK: MANAGE THE INGREDIENT NODES
     //spawns notes at a fixed interval
-    func spawnManager(beat: Double, bar: Double){
+    func spawnManager(beat: [Double], bar: Double){
         let move = SKAction.moveTo(x: 0, duration: bar)
-        let timeIntervals: [Double] = [beat]
+        let timeIntervals: [Double] = beat
         let notes: [Ingredient.Kind] = [.oil, .mozzarella, .tomato, .basil]
         Timer.scheduledTimer(withTimeInterval: timeIntervals.randomElement()!, repeats: true){
             (_) in
@@ -113,17 +124,31 @@ class GameScene: SKScene {
             self.addChild(ingredient)
             self.ingredientArray.append(ingredient)
         }
+        
+        
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
         /*self.points += 0.02
         print(points)*/
+        
+        if audioManager.isOver == true {
+            let scene: SKScene = GameOverScene(endMessage: "Level Complete!", endMusic: "The Greatest Chef", size: frame.size)
+            self.view?.presentScene(scene)
+        }
         for ingredient in ingredientArray {
             if ingredient.position.x <= 0 {
                 let i = ingredientArray.firstIndex(of: ingredient)!
                 ingredient.removeFromParent()
                 ingredientArray.remove(at: i)
-                lives -= 1
+                if isInvulnerable == false {
+                    lives -= 1
+                    isInvulnerable = true
+                    Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false){ _ in
+                        self.isInvulnerable = false
+                    }
+                }
                 combo = 0
                 livesIndicator.text = "Lives: \(lives)"
             }
@@ -141,16 +166,15 @@ class GameScene: SKScene {
         }
         if lives <= 0 {
             livesIndicator.text = "You Lost :("
-            
-            let scene:SKScene = GameOverScene(size: frame.size)
-            scene.backgroundColor = .clear
+            audioManager.stopIt()
+            let scene:SKScene = GameOverScene(endMessage: "You Failed...", endMusic: "Lost but not defeated", size: frame.size)
             self.view!.presentScene(scene)
         }
         
         pointsLabel.text = "Points: \(points) | Multiplier \(combo_multiplier)"
     }
     
-    
+ 
     //MARK: DEFINE WHAT HAPPENS WHEN A BUTTON IS PRESSED
     //record button press
     /*
