@@ -56,7 +56,7 @@
 		E12728172941597B00CDD761 /* mozzarella.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mozzarella.ahap; sourceTree = "<group>"; };
 		E12728182941597B00CDD761 /* oil.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = oil.ahap; sourceTree = "<group>"; };
 		E127283F29432D4900CDD761 /* FlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowView.swift; sourceTree = "<group>"; };
-		E127284129432E0F00CDD761 /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
+		E127284129432E0F00CDD761 /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		E1A5551F294A173B0019CD1A /* PERFECTIONIST.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PERFECTIONIST.mp3; sourceTree = "<group>"; };
 		E1A55521294A4A620019CD1A /* ChefSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefSprite.swift; sourceTree = "<group>"; };
 		E1B13CB829437F01006707A2 /* Pizza_Easy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Pizza_Easy.wav; sourceTree = "<group>"; };

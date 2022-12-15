@@ -10,15 +10,11 @@ import SpriteKit
 
 struct LevelView: View {
     var body: some View {
-        var easySpriteView =
-        SpriteView(scene : SceneFabric.shared.theGameSceneEasy , options: [.allowsTransparency])
-        var mediumSpriteView =
-        SpriteView(scene : SceneFabric.shared.theGameSceneNormal , options: [.allowsTransparency])
-        var hardSpriteView =
-        SpriteView(scene : SceneFabric.shared.theGameSceneEasy , options: [.allowsTransparency])
         
         NavigationView {
             HStack {
+                
+                // remove all sprite scene we go back on level view it's building on top of the previous and then crash
                 SpriteView(scene : SceneFabric.shared.miniChefScene , options: [.allowsTransparency])
                     .frame(width: 300, height: 300)
                 

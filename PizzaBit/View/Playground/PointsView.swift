@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct PointsView: View {
-    @State var combo : String  = "000"
+    
+    @EnvironmentObject var audioManager : AudioManager
+    @Binding var theGameScene : GameScene
+    @State var combo : String  = "00"
     @State var best : String = "999"
     @State var score : String = "090"
     
@@ -25,7 +28,7 @@ struct PointsView: View {
                         
                     Spacer()
                     
-                    Text(combo)
+                    Text("\(audioManager.combo)")
                         .font(.custom("Blocktopia", size: 45))
                         .foregroundColor(Color("Dough"))
                         
@@ -47,7 +50,7 @@ struct PointsView: View {
                             .scaledToFill()
                             .padding(.bottom,5)
                         
-                        Text(score)
+                        Text("\(audioManager.score)")
                             .font(.custom("Blocktopia", size: 25))
                             .foregroundColor(Color(uiColor: .label))
                             .shadow(color: Color(uiColor: .systemGreen), radius:0,x:-1)
@@ -72,9 +75,11 @@ struct PointsView: View {
         .frame(width: 250)
     }
 }
-
+/*
 struct PointsView_Previews: PreviewProvider {
     static var previews: some View {
-        PointsView()
+        PointsView(theGameScene: $theGameScene)
+            .environmentObject(audioManager)
     }
 }
+*/

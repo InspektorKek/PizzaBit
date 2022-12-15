@@ -12,13 +12,16 @@ import SwiftUI
 
 @MainActor  class AudioManager : ObservableObject {
 
-    //MARK: Dirty sharing everyevery sprite
-        let easySpriteView =
-        SpriteView(scene : SceneFabric.shared.theGameSceneEasy , isPaused: false, options: [.allowsTransparency])
-        let mediumSpriteView =
-        SpriteView(scene : SceneFabric.shared.theGameSceneNormal , isPaused: false, options: [.allowsTransparency])
-        let hardSpriteView =
-        SpriteView(scene : SceneFabric.shared.theGameSceneHard , isPaused: false, options: [.allowsTransparency])
+    //MARK: Dirty sharing everywhere score
+    @Published var score : Int
+    @Published var combo : Int
+    @Published var missed : Int
+    
+    init() {
+        score = 0
+        combo = 0
+        missed = 0
+    }
     
     
     var player : AVAudioPlayer?
@@ -87,6 +90,7 @@ import SwiftUI
         isPlaying = false
     }
  
+
 }
 
 

@@ -48,9 +48,7 @@ struct GamePauseView: View {
                                 HStack {
                                   
                                     Label("Continue", systemImage: "play.fill")
-                                        .foregroundColor(Color(uiColor: .systemGreen))
-                                        .shadow(color: Color(.white),radius: 2,x: -1,y: 2)
-                                        .labelStyle(.iconOnly)
+                                        .foregroundColor(Color(uiColor: .systemGreen))                                        .labelStyle(.iconOnly)
                                         .font(.system(size: 25))
                                         .bold()
                                     Text("Continue")
@@ -69,7 +67,6 @@ struct GamePauseView: View {
                                 HStack {
                                     Label("Restart", systemImage: "arrow.counterclockwise")
                                         .foregroundColor(Color(uiColor: .systemGray))
-                                        .shadow(color: Color(.white),radius: 1,x: 0,y: 2)
                                         .labelStyle(.iconOnly)
                                         .font(.system(size: 25))
                                         .bold()
@@ -94,7 +91,6 @@ struct GamePauseView: View {
                                 HStack {
                                     Label("Abandon", systemImage: "stop.fill")
                                         .foregroundColor(Color(uiColor: .systemPurple))
-                                        .shadow(color: Color(.white),radius: 2,x: 1,y: 2)
                                         .labelStyle(.iconOnly)
                                         .font(.system(size: 25))
                                         .bold()

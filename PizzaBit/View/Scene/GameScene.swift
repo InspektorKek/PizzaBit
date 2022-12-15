@@ -153,6 +153,7 @@ class GameScene: SKScene {
     
     //MARK: DEFINE WHAT HAPPENS WHEN A BUTTON IS PRESSED
     //record button press
+    /*
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
@@ -171,9 +172,9 @@ class GameScene: SKScene {
             }
         }
     }
-    
+    */
     //checks if the correct button was pressed at the right moment
-    func defineSuccess(buttonPressed: String){
+    func defineSuccess(buttonPressed: String)->(cmb : Int,liv : Int,pts : Int){
         miniChef.createKickAnimation()
         miniChef.run(miniChef.kickAnimation)
         let obj = nodes(at: CGPoint(x: frame.midX * 0.4, y: frame.midY))
@@ -182,10 +183,10 @@ class GameScene: SKScene {
             combo = 0
             lives -= 1
             livesIndicator.text = "Lives: \(lives)"
-            return
+            return (combo,lives,points)
         }
         if obj.first!.name == buttonPressed {
-            guard let i = ingredientArray.firstIndex(of: obj.first!) else { return }
+            guard let i = ingredientArray.firstIndex(of: obj.first!) else { return (0,0,0) }
             combo += 1
             let objIt = obj.first as? IngredientSprite
             let explosion = objIt?.buildExplosion()
@@ -200,13 +201,13 @@ class GameScene: SKScene {
             points += 5 * combo_multiplier
             //self.pointsLabel.text = "Points: " + String(format: "%.0f", points) + " | Multiplier: \(combo_multiplier)"
             displayResult(resultText: "Perfect!")
-            return
+            return (combo,lives,points)
         }
         combo = 0
         displayResult(resultText: "Miss!")
         lives -= 1
         livesIndicator.text = "Lives: \(lives)"
-        return
+        return (combo,lives,points)
     }
     
     func displayResult(resultText: String){

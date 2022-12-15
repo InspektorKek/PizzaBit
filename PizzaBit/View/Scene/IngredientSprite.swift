@@ -13,7 +13,7 @@ class IngredientSprite: SKSpriteNode {
     var ingredientName: String { ingredientKind.name }
     var ingredientNameExplosion: String = ""
     private var ingredientFrames: [SKTexture] = []
-    let defaultSize: CGSize = CGSize(width: 32, height: 32)
+    let defaultSize: CGSize = CGSize(width: 48, height: 48)
     
 
     

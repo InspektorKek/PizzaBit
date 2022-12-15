@@ -15,14 +15,12 @@ import SpriteKit
     @Published var highScore : Int
     @Published var needUpdate : Bool
     @Published var scoreToDisplay : String
-    @Published var isOnAir : Bool
     
     init(){
         gameScore = 0
         highScore = 0
         needUpdate = false
         scoreToDisplay = "000"
-        isOnAir = true
     }
 }
 */
@@ -38,11 +36,14 @@ struct PlaygroundView: View {
     
     @State var pizza: [Ingredient] = Ingredient.Kind.allCases.map { Ingredient(type: $0, scene: IngredientScene(ingredientKind: $0)) }
     
+    @State var visualFeedback : String = " Kick\n⬇︎ "
+    @State var scaleMedium = false
     var body: some View {
         VStack(spacing: 0) {
             // MARK: Play Pause Soundtrack btn
             HStack {
-                PointsView()
+                    PointsView(theGameScene: $theGameScene)
+                    .environmentObject(audioManager)
                 Spacer()
                 Button {
                     audioManager.playPause()
@@ -59,15 +60,36 @@ struct PlaygroundView: View {
             FlowView(theGameScene: $theGameScene)
                 .environmentObject(audioManager)
                 .padding(.leading)
+                .overlay(
+                    Text(visualFeedback)
+                    .font(Font.custom("PixelatedPusab", size: 15))
+                    .multilineTextAlignment(.center)
+                    .onChange(of: audioManager.score) { _ in
+                      
+                        visualFeedback = [ "You rock\n⬇︎", "Amazing\n⬇︎","Perfect\n⬇︎","You got this \n⬇︎", "On Fire\n⬇︎"].shuffled()[0]
+                        
+                    }
+                        .onChange(of: audioManager.missed) { _ in
+                          
+                            visualFeedback = [ "Missed\n⬇︎", "Oops\n⬇︎","Try Again\n⬇︎"].shuffled()[0]
+                            
+                        }
+                    .offset(x: -230, y:-25)
+                )
             
             // MARK: Ingredients btn
             HStack {
                 ForEach(pizza){ ing in
                     Button {
+                        
                         ingredient = ing.type.name
                         prepareHaptics()
                         playIngredientHapticsFile(ing.haptic)
-                        theGameScene.defineSuccess(buttonPressed: ing.type.name)
+                        
+                        audioManager.score =  theGameScene.defineSuccess(buttonPressed: ing.type.name).pts
+                        audioManager.combo = theGameScene.defineSuccess(buttonPressed: ing.type.name).cmb
+                        audioManager.missed = 100 - theGameScene.defineSuccess(buttonPressed: ing.type.name).liv
+                      
                     } label: {
                         Lozenge(pictoName: ing.imgName, rotationEffect: 45, frame: 75)
                             .padding(.horizontal)
